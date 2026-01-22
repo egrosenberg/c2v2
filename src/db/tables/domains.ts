@@ -1,5 +1,5 @@
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
+import { createInsertSchema, createUpdateSchema } from "drizzle-zod";
 import type z from "zod";
 
 export const domains = pgTable("domains", {
@@ -7,7 +7,7 @@ export const domains = pgTable("domains", {
   name: text("name").notNull(),
 });
 
-export const domainsInserSchema = createInsertSchema(domains);
-export type NewDomain = z.input<typeof domainsInserSchema>;
+export const domainsInsertSchema = createInsertSchema(domains);
+export type NewDomain = z.input<typeof domainsInsertSchema>;
 
 export type Skill = typeof domains.$inferSelect;
