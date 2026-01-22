@@ -4,7 +4,7 @@ import type z from "zod";
 
 export const skills = pgTable("skills", {
   id: uuid("id").primaryKey().defaultRandom(),
-  name: text("name").notNull(),
+  name: text("name").notNull().unique(),
   type: text("type").notNull(),
   subtype: text("subtype"),
   actions: integer("actions").notNull(),

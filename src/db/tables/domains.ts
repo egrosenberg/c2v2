@@ -4,7 +4,7 @@ import type z from "zod";
 
 export const domains = pgTable("domains", {
   id: uuid("id").primaryKey().defaultRandom(),
-  name: text("name").notNull(),
+  name: text("name").notNull().unique(),
 });
 
 export const domainsInsertSchema = createInsertSchema(domains);

@@ -4,7 +4,7 @@ import type z from "zod";
 
 export const keeperClasses = pgTable("keeper_classes", {
   id: uuid("id").primaryKey().defaultRandom(),
-  name: text("name").notNull(),
+  name: text("name").notNull().unique(),
   canAlways: text("can_always").array(),
 });
 

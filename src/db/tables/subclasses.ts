@@ -4,7 +4,7 @@ import type z from "zod";
 
 export const subclasses = pgTable("subclasses", {
   id: uuid("id").primaryKey().defaultRandom(),
-  name: text("name").notNull(),
+  name: text("name").notNull().unique(),
   domainId: uuid("domain_id").notNull(),
   classId: uuid("class_id").notNull(),
 });
