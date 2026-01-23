@@ -3,20 +3,21 @@ import { database } from "../../index.js";
 import { asc, desc } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import type { PaginatedResult, SourceType } from "../index.js";
-import { skills, type SkillWithRelations } from "@db/tables/skills";
 import {
-  skillsFieldsMap,
-  skillsFilterSchema,
-  type SkillsField,
+  aspectsFieldsMap,
+  aspectsFilterSchema,
+  type AspectsField,
 } from "./types.js";
-import { createSkillsFilter } from "./lib/create-skills-filter.js";
 import { getSource } from "../_lib/get-source.js";
+import { createAspectsFilter } from "./lib/create-aspects-filter.js";
+import { aspects, type AspectWithRelations } from "@db/tables/aspects";
+import { getAspectRelations } from "./lib/get-aspect-relations.js";
 
 const schema = z.object({
-  filter: skillsFilterSchema.optional().default({}),
+  filter: aspectsFilterSchema.optional().default({}),
   limit: z.number().optional(),
   offset: z.int().optional().default(0),
-  orderBy: z.custom<SkillsField>().optional().default("name"),
+  orderBy: z.custom<AspectsField>().optional().default("name"),
   order: z
     .union([z.literal("asc"), z.literal("desc")])
     .optional()
@@ -25,9 +26,9 @@ const schema = z.object({
 
 type Options = z.input<typeof schema>;
 
-export async function findSkills(
+export async function findAspects(
   options: Options = {},
-): Promise<PaginatedResult<SkillWithRelations>> {
+): Promise<PaginatedResult<AspectWithRelations>> {
   try {
     const parsed = schema.parse(options);
 
@@ -35,14 +36,14 @@ export async function findSkills(
 
     const order =
       parsed.order === "asc"
-        ? asc(skillsFieldsMap[parsed.orderBy].column)
-        : desc(skillsFieldsMap[parsed.orderBy].column);
+        ? asc(aspectsFieldsMap[parsed.orderBy].column)
+        : desc(aspectsFieldsMap[parsed.orderBy].column);
 
-    const filter = createSkillsFilter(parsed.filter);
+    const filter = createAspectsFilter(parsed.filter);
 
     const query = db
       .select()
-      .from(skills)
+      .from(aspects)
       .where(filter)
       .orderBy(order)
       .$dynamic();
@@ -55,14 +56,11 @@ export async function findSkills(
 
     const result = await query;
 
-    const records: SkillWithRelations[] = [];
+    const records: AspectWithRelations[] = [];
 
     for (const record of result) {
-      const source = await getSource({
-        sourceType: record.sourceType as SourceType,
-        sourceId: record.sourceId,
-      });
-      records.push({ ...record, source });
+      const withRelations = await getAspectRelations(record);
+      records.push(withRelations);
     }
 
     return {

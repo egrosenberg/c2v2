@@ -11,7 +11,7 @@ export const keeperClassesFieldsMap: Record<KeeperClassesField, FilterColumn> =
   {
     id: { column: keeperClasses.id },
     name: { column: keeperClasses.name },
-    canAlways: { column: keeperClasses.canAlways, operator: "contains" },
+    canAlways: { column: keeperClasses.canAlways, operator: "array_contains" },
   };
 
 export const keeperClassesFilterSchema = z.partialRecord(

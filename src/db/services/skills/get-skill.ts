@@ -4,9 +4,10 @@ import { fromZodError } from "zod-validation-error";
 import { skillsFilterSchema } from "./types.js";
 import { createSkillsFilter } from "./lib/create-skills-filter.js";
 import { skills, type SkillWithRelations } from "@db/tables/skills";
-import { getSkillSource } from "./lib/get-skill-source.js";
+import { getSource } from "../_lib/get-source.js";
+import { withoutSource, type SourceType } from "../index.js";
 
-const schema = skillsFilterSchema.optional().default({});
+const schema = skillsFilterSchema.optional().default({}).and(withoutSource);
 
 type Options = z.input<typeof schema>;
 
@@ -24,7 +25,12 @@ export async function getSkill(
 
     if (!record) return null;
 
-    const source = await getSkillSource(record);
+    const source = parsed.withoutSource
+      ? null
+      : await getSource({
+          sourceType: record.sourceType as SourceType,
+          sourceId: record.sourceId,
+        });
 
     return { ...record, source };
   } catch (error) {

@@ -26,7 +26,7 @@ export async function getDomain(options: Options) {
 
     const [record] = await db.select().from(domains).where(filter).limit(1);
 
-    return record;
+    return record ?? null;
   } catch (error) {
     if (error instanceof z.ZodError) throw fromZodError(error);
     throw error;

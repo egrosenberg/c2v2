@@ -1,10 +1,7 @@
 import { integer, pgTable, text, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
-import type { KeeperClass } from "./keeper-classes.js";
-import type { Domain } from "./domains.js";
-import type { Subclass } from "./subclasses.js";
-import type { Aspect } from "./aspects.js";
+import type { Source } from "@db/services/index";
 
 export const skills = pgTable("skills", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -35,15 +32,6 @@ export type NewSkill = z.input<typeof skillsInsertSchema>;
 
 export type Skill = typeof skills.$inferSelect;
 
-export type SkillSourceType = "class" | "subclass" | "aspect" | "domain";
-export type SkillSource =
-  | KeeperClass
-  | Domain
-  | Subclass
-  | Aspect
-  | undefined
-  | null;
-
 export type SkillWithRelations = Skill & {
-  source: SkillSource;
+  source: Source;
 };
