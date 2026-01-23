@@ -37,3 +37,5 @@ npm run migrate:run
 # Clear DB
 ./scripts/truncate-db.sh
 ```
+
+This software is provided "as is" and free of charge. See `LICENSE.txt` for more information.
