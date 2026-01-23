@@ -1,3 +1,8 @@
+Prerequisites:
+
+- Docker
+- npm
+
 Install postgres docker image
 
 ```bash
@@ -14,6 +19,12 @@ docker network create --subnet=10.5.0.0/16 celestus_net
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=celestus -d --net celestus_net --ip 10.5.0.6 -p 5432:5432 postgres
 ```
 
+Install modules
+
+```bash
+npm i
+```
+
 Maintaining DB
 
 ```bash
@@ -22,4 +33,7 @@ npm run migrate:gen
 
 # Run migrations
 npm run migrate:run
+
+# Clear DB
+./scripts/truncate-db.sh
 ```
