@@ -4,7 +4,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "npx tsc --noEmit",
     "migrate:gen": "npx drizzle-kit generate",
     "migrate:run": "npx drizzle-kit migrate",
     "db:truncate": "./scripts/truncate-db.sh"
