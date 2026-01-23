@@ -1,8 +1,8 @@
 import z, { uuid } from "zod";
 import { database } from "../../index.js";
-import {  asc, desc} from "drizzle-orm";
+import { asc, desc } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
-import type { PaginatedResult } from "../types.js";
+import type { PaginatedResult } from "../index.js";
 import { skills, type SkillWithRelations } from "@db/tables/skills";
 import {
   skillsFieldsMap,

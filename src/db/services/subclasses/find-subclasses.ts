@@ -4,7 +4,7 @@ import { and, eq, ilike } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import { subclasses, type SuclassWithRelations } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
-import type { PaginatedResult } from "../types.js";
+import type { PaginatedResult } from "../index.js";
 import { keeperClasses } from "@db/tables/keeper-classes";
 
 const schema = z.object({
