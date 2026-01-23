@@ -10,7 +10,7 @@ const schema = z
 
 type Options = z.input<typeof schema>;
 
-export async function deleteKeeperClass(options: Options) {
+export async function deleteSubclass(options: Options) {
   try {
     const parsed = schema.parse(options);
 

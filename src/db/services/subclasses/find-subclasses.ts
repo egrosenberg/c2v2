@@ -5,6 +5,7 @@ import { fromZodError } from "zod-validation-error";
 import { subclasses, type SuclassWithRelations } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
 import type { PaginatedResult } from "../types.js";
+import { keeperClasses } from "@db/tables/keeper-classes";
 
 const schema = z.object({
   limit: z.number().optional(),
@@ -46,6 +47,7 @@ export async function findSubclasses(
       .select()
       .from(subclasses)
       .innerJoin(domains, eq(domains.id, subclasses.domainId))
+      .innerJoin(keeperClasses, eq(keeperClasses.id, subclasses.classId))
       .where(filter)
       .orderBy(subclasses.name)
       .$dynamic();
@@ -62,6 +64,7 @@ export async function findSubclasses(
       records: records.map((record) => ({
         ...record.subclasses,
         domain: record.domains,
+        class: record.keeper_classes,
       })),
       total,
     };
