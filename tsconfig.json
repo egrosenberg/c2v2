@@ -12,8 +12,10 @@
     "types": ["node"],
 
     "paths": {
-      "@db/*": ["./src/db/*.ts"]
+      "@db/*": ["./src/db/*.ts"],
+      "*/": ["./*.ts"]
     },
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -35,6 +37,8 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
+
+    "moduleResolution": "nodenext",
 
     // Recommended Options
     "strict": true,

@@ -10,4 +10,4 @@ export const domains = pgTable("domains", {
 export const domainsInsertSchema = createInsertSchema(domains);
 export type NewDomain = z.input<typeof domainsInsertSchema>;
 
-export type Skill = typeof domains.$inferSelect;
+export type Domain = typeof domains.$inferSelect;

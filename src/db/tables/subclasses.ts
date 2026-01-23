@@ -1,6 +1,7 @@
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
+import type { Domain } from "./domains.js";
 
 export const subclasses = pgTable("subclasses", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -13,3 +14,6 @@ export const subclassesInsertSchema = createInsertSchema(subclasses);
 export type NewSubclass = z.input<typeof subclassesInsertSchema>;
 
 export type Subclass = typeof subclasses.$inferSelect;
+export type SuclassWithRelations = Subclass & {
+  domain: Domain;
+};

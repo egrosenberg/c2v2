@@ -1,23 +1,24 @@
 import z from "zod";
 import { database } from "../../index.js";
-import { domains } from "@db/tables/domains";
 import { fromZodError } from "zod-validation-error";
 import { eq } from "drizzle-orm";
+import { keeperClasses } from "@db/tables/keeper-classes";
 import { createUpdateSchema } from "drizzle-zod";
+import { subclasses } from "@db/tables/subclasses";
 
-const schema = createUpdateSchema(domains).required({ id: true });
+const schema = createUpdateSchema(subclasses).required({ id: true });
 type Options = z.input<typeof schema>;
 
-export async function updateDomain(options: Options) {
+export async function updateSubclass(options: Options) {
   try {
     const parsed = schema.parse(options);
 
     const db = database();
 
     const [record] = await db
-      .update(domains)
+      .update(keeperClasses)
       .set(parsed)
-      .where(eq(domains.id, parsed.id))
+      .where(eq(keeperClasses.id, parsed.id))
       .returning();
 
     return record;

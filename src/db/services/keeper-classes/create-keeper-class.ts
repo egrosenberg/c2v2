@@ -1,21 +1,21 @@
 import z from "zod";
 import { database } from "../../index.js";
-import {
-  domains,
-  domainsInsertSchema,
-  type NewDomain,
-} from "@db/tables/domains";
-import { fromZodError } from "zod-validation-error";
-import { getDomain } from "./get-domain.js";
 
-export async function createDomain(options: NewDomain) {
+import { fromZodError } from "zod-validation-error";
+import {
+  keeperClasses,
+  keeperClassesInsertSchema,
+  type NewKeeperClass,
+} from "@db/tables/keeper-classes";
+
+export async function createKeeperClass(options: NewKeeperClass) {
   try {
-    const parsed = domainsInsertSchema.parse(options);
+    const parsed = keeperClassesInsertSchema.parse(options);
 
     const db = database();
 
     const [record] = await db
-      .insert(domains)
+      .insert(keeperClasses)
       .values(parsed)
       .onConflictDoNothing()
       .returning();

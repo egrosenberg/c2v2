@@ -1,21 +1,21 @@
 import z from "zod";
 import { database } from "../../index.js";
-import {
-  domains,
-  domainsInsertSchema,
-  type NewDomain,
-} from "@db/tables/domains";
-import { fromZodError } from "zod-validation-error";
-import { getDomain } from "./get-domain.js";
 
-export async function createDomain(options: NewDomain) {
+import { fromZodError } from "zod-validation-error";
+import {
+  subclasses,
+  subclassesInsertSchema,
+  type NewSubclass,
+} from "@db/tables/subclasses";
+
+export async function createSubclass(options: NewSubclass) {
   try {
-    const parsed = domainsInsertSchema.parse(options);
+    const parsed = subclassesInsertSchema.parse(options);
 
     const db = database();
 
     const [record] = await db
-      .insert(domains)
+      .insert(subclasses)
       .values(parsed)
       .onConflictDoNothing()
       .returning();
