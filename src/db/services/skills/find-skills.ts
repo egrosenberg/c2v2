@@ -35,8 +35,8 @@ export async function findSkills(
 
     const order =
       parsed.order === "asc"
-        ? asc(skillsFieldsMap[parsed.orderBy])
-        : desc(skillsFieldsMap[parsed.orderBy]);
+        ? asc(skillsFieldsMap[parsed.orderBy].column)
+        : desc(skillsFieldsMap[parsed.orderBy].column);
 
     const filter = createSkillsFilter(parsed.filter);
 

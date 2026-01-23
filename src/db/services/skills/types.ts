@@ -1,6 +1,7 @@
 import { skills } from "@db/tables/skills";
 import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
 import z from "zod";
+import type { FilterColumn } from "../index.js";
 
 export const skillsFields = [
   "id",
@@ -28,28 +29,28 @@ export const skillsFields = [
 
 export type SkillsField = (typeof skillsFields)[number];
 
-export const skillsFieldsMap: Record<SkillsField, PgColumn> = {
-  id: skills.id,
-  name: skills.name,
-  type: skills.type,
-  subtype: skills.type,
-  actions: skills.actions,
-  focus: skills.focus,
-  range: skills.range,
-  numTargets: skills.numTargets,
-  targetType: skills.targetType,
-  aoeShape: skills.aoeShape,
-  aoeRadius: skills.aoeRadius,
-  aoeHeight: skills.aoeHeight,
-  aoeLength: skills.aoeLength,
-  aoeWidth: skills.aoeWidth,
-  sourceType: skills.sourceType,
-  sourceId: skills.sourceId,
-  description: skills.description,
-  damageTypes: skills.damageTypes,
-  statuses: skills.statuses,
-  restoreTypes: skills.restoreTypes,
-  tags: skills.tags,
+export const skillsFieldsMap: Record<SkillsField, FilterColumn> = {
+  id: { column: skills.id },
+  name: { column: skills.name, operator: "ilike" },
+  type: { column: skills.type, operator: "ilike" },
+  subtype: { column: skills.type },
+  actions: { column: skills.actions },
+  focus: { column: skills.focus },
+  range: { column: skills.range },
+  numTargets: { column: skills.numTargets },
+  targetType: { column: skills.targetType },
+  aoeShape: { column: skills.aoeShape },
+  aoeRadius: { column: skills.aoeRadius },
+  aoeHeight: { column: skills.aoeHeight },
+  aoeLength: { column: skills.aoeLength },
+  aoeWidth: { column: skills.aoeWidth },
+  sourceType: { column: skills.sourceType },
+  sourceId: { column: skills.sourceId },
+  description: { column: skills.description },
+  damageTypes: { column: skills.damageTypes },
+  statuses: { column: skills.statuses },
+  restoreTypes: { column: skills.restoreTypes },
+  tags: { column: skills.tags },
 };
 
 export const skillsFilterSchema = z.partialRecord(

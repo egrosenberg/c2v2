@@ -1,18 +1,27 @@
 import z from "zod";
 import { database } from "../../index.js";
-import { eq } from "drizzle-orm";
+import { asc, desc, eq } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import { subclasses, type SuclassWithRelations } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
 import type { PaginatedResult } from "../index.js";
 import { keeperClasses } from "@db/tables/keeper-classes";
-import { subclassesFilterSchema } from "./types.js";
+import {
+  subclassesFieldsMap,
+  subclassesFilterSchema,
+  type SubclassesField,
+} from "./types.js";
 import { createSubclassFilter } from "./lib/create-subclass-filter.js";
 
 const schema = z.object({
+  filter: subclassesFilterSchema.optional().default({}),
   limit: z.number().optional(),
   offset: z.int().optional().default(0),
-  filter: subclassesFilterSchema.optional().default({}),
+  orderBy: z.custom<SubclassesField>().optional().default("name"),
+  order: z
+    .union([z.literal("asc"), z.literal("desc")])
+    .optional()
+    .default("asc"),
 });
 
 type Options = z.input<typeof schema>;
@@ -27,13 +36,18 @@ export async function findSubclasses(
 
     const filter = createSubclassFilter(parsed.filter);
 
+    const order =
+      parsed.order === "asc"
+        ? asc(subclassesFieldsMap[parsed.orderBy].column)
+        : desc(subclassesFieldsMap[parsed.orderBy].column);
+
     const query = db
       .select()
       .from(subclasses)
       .innerJoin(domains, eq(domains.id, subclasses.domainId))
       .innerJoin(keeperClasses, eq(keeperClasses.id, subclasses.classId))
       .where(filter)
-      .orderBy(subclasses.name)
+      .orderBy(order)
       .$dynamic();
 
     const total = await db.$count(query);
