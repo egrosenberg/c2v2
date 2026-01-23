@@ -1,22 +1,18 @@
-import z, { uuid } from "zod";
+import z from "zod";
 import { database } from "../../index.js";
-import { and, eq, ilike } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import { subclasses, type SuclassWithRelations } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
 import type { PaginatedResult } from "../index.js";
 import { keeperClasses } from "@db/tables/keeper-classes";
+import { subclassesFilterSchema } from "./types.js";
+import { createSubclassFilter } from "./lib/create-subclass-filter.js";
 
 const schema = z.object({
   limit: z.number().optional(),
   offset: z.int().optional().default(0),
-  filter: z
-    .object({
-      name: z.string().optional(),
-      classId: uuid().optional(),
-      domainId: uuid().optional(),
-    })
-    .optional(),
+  filter: subclassesFilterSchema.optional().default({}),
 });
 
 type Options = z.input<typeof schema>;
@@ -29,19 +25,7 @@ export async function findSubclasses(
 
     const db = database();
 
-    const nameFilter = parsed?.filter?.name
-      ? ilike(subclasses.name, parsed.filter.name)
-      : undefined;
-
-    const classIdFiler = parsed?.filter?.classId
-      ? eq(subclasses.classId, parsed.filter.classId)
-      : undefined;
-
-    const domainIdFilter = parsed?.filter?.domainId
-      ? eq(subclasses.classId, parsed.filter.domainId)
-      : undefined;
-
-    const filter = and(nameFilter, classIdFiler, domainIdFilter);
+    const filter = createSubclassFilter(parsed.filter);
 
     const query = db
       .select()

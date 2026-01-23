@@ -5,26 +5,16 @@ import { fromZodError } from "zod-validation-error";
 import { subclasses } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
 import { keeperClasses } from "@db/tables/keeper-classes";
+import { createSubclassFilter } from "./lib/create-subclass-filter.js";
+import { subclassesFilterSchema, type SubclassesFilter } from "./types.js";
 
-const schema = z
-  .object({ id: z.string(), name: z.never().optional() })
-  .or(z.object({ id: z.never().optional(), name: z.string() }));
-
-type Options = z.input<typeof schema>;
-
-export async function getSubclass(options: Options) {
+export async function getSubclass(options: SubclassesFilter) {
   try {
-    const parsed = schema.parse(options);
+    const parsed = subclassesFilterSchema.parse(options);
 
     const db = database();
 
-    const idFilter = parsed?.id ? eq(subclasses.id, parsed.id) : undefined;
-
-    const nameFilter = parsed?.name
-      ? ilike(subclasses.name, parsed.name)
-      : undefined;
-
-    const filter = and(idFilter, nameFilter);
+    const filter = createSubclassFilter(parsed);
 
     const [record] = await db
       .select()

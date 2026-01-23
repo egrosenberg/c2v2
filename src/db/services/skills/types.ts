@@ -1,5 +1,4 @@
 import { skills } from "@db/tables/skills";
-import { createUpdateSchema } from "drizzle-zod";
 import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
 import z from "zod";
 
