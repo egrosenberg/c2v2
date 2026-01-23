@@ -34,8 +34,8 @@ npm run migrate:gen
 # Run migrations
 npm run migrate:run
 
-# Clear DB
-./scripts/truncate-db.sh
+# Empty out DB tables
+npm run db:truncate
 ```
 
 This software is provided "as is" and free of charge. See `LICENSE.txt` for more information.
