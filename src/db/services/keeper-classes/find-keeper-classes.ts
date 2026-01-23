@@ -1,17 +1,28 @@
 import z from "zod";
 import { database } from "../../index.js";
-import { and, ilike } from "drizzle-orm";
+import { and, asc, desc, ilike } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import {
   keeperClasses,
   type KeeperClassWithRelations,
 } from "@db/tables/keeper-classes";
 import { findSubclasses } from "../subclasses/find-subclasses.js";
+import {
+  keeperClassesFieldsMap,
+  keeperClassesFilterSchema,
+  type KeeperClassesField,
+} from "./types.js";
+import { createKeeperClassesFilter } from "./lib/create-keeper-classes-filter.js";
 
 const schema = z.object({
+  filter: keeperClassesFilterSchema.optional().default({}),
   limit: z.number().optional(),
   offset: z.int().optional().default(0),
-  filter: z.object({ name: z.string().optional() }).optional(),
+  orderBy: z.custom<KeeperClassesField>().optional().default("name"),
+  order: z
+    .union([z.literal("asc"), z.literal("desc")])
+    .optional()
+    .default("asc"),
 });
 
 type Options = z.input<typeof schema>;
@@ -22,17 +33,18 @@ export async function findKeeperClasses(options: Options = {}) {
 
     const db = database();
 
-    const nameFilter = parsed?.filter?.name
-      ? ilike(keeperClasses.name, parsed.filter.name)
-      : undefined;
+    const filter = createKeeperClassesFilter(parsed.filter);
 
-    const filter = and(nameFilter);
+    const order =
+      parsed.order === "asc"
+        ? asc(keeperClassesFieldsMap[parsed.orderBy]?.column)
+        : desc(keeperClassesFieldsMap[parsed.orderBy]?.column);
 
     const query = db
       .select()
       .from(keeperClasses)
       .where(filter)
-      .orderBy(keeperClasses.name)
+      .orderBy(order)
       .$dynamic();
 
     const total = await db.$count(query);
