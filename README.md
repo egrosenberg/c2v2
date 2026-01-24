@@ -3,6 +3,8 @@ Prerequisites:
 - Docker
 - npm
 
+(This project was created on a Centos10 machine and I have not confirmed workflows for other operating systems)
+
 Install postgres docker image
 
 ```bash
