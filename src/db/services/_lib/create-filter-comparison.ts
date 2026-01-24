@@ -22,8 +22,8 @@ export function createFilterComparison(options: Options) {
     case "array_contains":
       // Not super happy with this but this is the best I've got for now
       // There is a real argument for just not using array columns ever
-      return sql`position(${parsed.value} in concat_ws(',', ${parsed.column}))>0`;
+      return sql`position(LOWER(${parsed.value}) in LOWER(concat_ws(',', ${parsed.column})))>0`;
     case "substr":
-      return sql`position(${parsed.value} in ${parsed.column})>0`;
+      return sql`position(LOWER(${parsed.value}) in LOWER(${parsed.column}))>0`;
   }
 }

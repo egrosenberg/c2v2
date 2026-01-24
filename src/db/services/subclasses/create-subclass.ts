@@ -7,6 +7,7 @@ import {
   subclassesInsertSchema,
   type NewSubclass,
 } from "@db/tables/subclasses";
+import { searchIndex } from "@db/tables/search-index";
 
 export async function createSubclass(options: NewSubclass) {
   try {
@@ -21,6 +22,8 @@ export async function createSubclass(options: NewSubclass) {
       .returning();
 
     if (!record) throw new Error("Failed to create domain");
+
+    await db.insert(searchIndex).values({ subclass: record.id });
 
     return record;
   } catch (error) {

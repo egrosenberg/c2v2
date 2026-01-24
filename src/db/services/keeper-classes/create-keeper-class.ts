@@ -7,6 +7,7 @@ import {
   keeperClassesInsertSchema,
   type NewKeeperClass,
 } from "@db/tables/keeper-classes";
+import { searchIndex } from "@db/tables/search-index";
 
 export async function createKeeperClass(options: NewKeeperClass) {
   try {
@@ -21,6 +22,8 @@ export async function createKeeperClass(options: NewKeeperClass) {
       .returning();
 
     if (!record) throw new Error("Failed to create domain");
+
+    await db.insert(searchIndex).values({ keeperClass: record.id });
 
     return record;
   } catch (error) {

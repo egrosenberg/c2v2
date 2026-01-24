@@ -6,7 +6,7 @@ import {
   type NewDomain,
 } from "@db/tables/domains";
 import { fromZodError } from "zod-validation-error";
-import { getDomain } from "./get-domain";
+import { searchIndex } from "@db/tables/search-index";
 
 export async function createDomain(options: NewDomain) {
   try {
@@ -21,6 +21,8 @@ export async function createDomain(options: NewDomain) {
       .returning();
 
     if (!record) throw new Error("Failed to create domain");
+
+    await db.insert(searchIndex).values({ domain: record.id });
 
     return record;
   } catch (error) {

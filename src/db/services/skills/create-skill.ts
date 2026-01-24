@@ -2,6 +2,7 @@ import z from "zod";
 import { database } from "../../index";
 import { fromZodError } from "zod-validation-error";
 import { skills, skillsInsertSchema, type NewSkill } from "@db/tables/skills";
+import { searchIndex } from "@db/tables/search-index";
 
 export async function createSkill(options: NewSkill) {
   try {
@@ -16,6 +17,8 @@ export async function createSkill(options: NewSkill) {
       .returning();
 
     if (!record) throw new Error("Failed to create skill");
+
+    await db.insert(searchIndex).values({ skill: record.id });
 
     return record;
   } catch (error) {

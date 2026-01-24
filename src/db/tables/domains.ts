@@ -1,5 +1,5 @@
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
-import { createInsertSchema, createUpdateSchema } from "drizzle-zod";
+import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
 
 export const domains = pgTable("domains", {

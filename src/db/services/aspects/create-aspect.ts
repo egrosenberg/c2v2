@@ -6,6 +6,7 @@ import {
   aspectsInsertSchema,
   type NewAspect,
 } from "@db/tables/aspects";
+import { searchIndex } from "@db/tables/search-index";
 
 export async function createAspect(options: NewAspect) {
   try {
@@ -20,6 +21,8 @@ export async function createAspect(options: NewAspect) {
       .returning();
 
     if (!record) throw new Error("Failed to create domain");
+
+    await db.insert(searchIndex).values({ aspect: record.id });
 
     return record;
   } catch (error) {
