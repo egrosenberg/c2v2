@@ -1,17 +1,17 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { asc, desc, eq } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import { subclasses, type SuclassWithRelations } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
-import type { PaginatedResult } from "../index.js";
+import type { PaginatedResult } from "../index";
 import { keeperClasses } from "@db/tables/keeper-classes";
 import {
   subclassesFieldsMap,
   subclassesFilterSchema,
   type SubclassesField,
-} from "./types.js";
-import { createSubclassFilter } from "./lib/create-subclass-filter.js";
+} from "./types";
+import { createSubclassFilter } from "./lib/create-subclass-filter";
 
 const schema = z.object({
   filter: subclassesFilterSchema.optional().default({}),

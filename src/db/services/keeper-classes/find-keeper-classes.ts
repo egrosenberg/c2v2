@@ -1,18 +1,18 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { and, asc, desc, ilike } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import {
   keeperClasses,
   type KeeperClassWithRelations,
 } from "@db/tables/keeper-classes";
-import { findSubclasses } from "../subclasses/find-subclasses.js";
+import { findSubclasses } from "../subclasses/find-subclasses";
 import {
   keeperClassesFieldsMap,
   keeperClassesFilterSchema,
   type KeeperClassesField,
-} from "./types.js";
-import { createKeeperClassesFilter } from "./lib/create-keeper-classes-filter.js";
+} from "./types";
+import { createKeeperClassesFilter } from "./lib/create-keeper-classes-filter";
 
 const schema = z.object({
   filter: keeperClassesFilterSchema.optional().default({}),

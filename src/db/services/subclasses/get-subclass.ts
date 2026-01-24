@@ -1,12 +1,12 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { and, eq, ilike } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
 import { subclasses } from "@db/tables/subclasses";
 import { domains } from "@db/tables/domains";
 import { keeperClasses } from "@db/tables/keeper-classes";
-import { createSubclassFilter } from "./lib/create-subclass-filter.js";
-import { subclassesFilterSchema, type SubclassesFilter } from "./types.js";
+import { createSubclassFilter } from "./lib/create-subclass-filter";
+import { subclassesFilterSchema, type SubclassesFilter } from "./types";
 
 export async function getSubclass(options: SubclassesFilter) {
   try {

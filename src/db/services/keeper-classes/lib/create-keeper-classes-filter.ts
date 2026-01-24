@@ -1,10 +1,10 @@
-import { and, eq } from "node_modules/drizzle-orm/index.d/";
+import { and, eq } from "drizzle-orm";
 import {
   keeperClassesFields,
   keeperClassesFieldsMap,
   keeperClassesFilterSchema,
   type KeeperClassesFilter,
-} from "../types.js";
+} from "../types";
 import { createFilterComparison } from "@db/services/_lib/create-filter-comparison";
 
 export function createKeeperClassesFilter(options: KeeperClassesFilter) {

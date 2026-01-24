@@ -1,10 +1,10 @@
-import { and, eq } from "node_modules/drizzle-orm/index.d/";
+import { and, eq } from "drizzle-orm";
 import {
   skillsFields,
   skillsFieldsMap,
   skillsFilterSchema,
   type skillsFilter,
-} from "../types.js";
+} from "../types";
 import { createFilterComparison } from "@db/services/_lib/create-filter-comparison";
 
 export function createSkillsFilter(options: skillsFilter) {

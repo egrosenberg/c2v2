@@ -1,7 +1,7 @@
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
-import type { Domain } from "./domains.js";
+import type { Domain } from "./domains";
 
 export const subclasses = pgTable("subclasses", {
   id: uuid("id").primaryKey().defaultRandom(),

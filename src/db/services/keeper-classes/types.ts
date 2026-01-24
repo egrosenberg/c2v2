@@ -1,7 +1,7 @@
 import { keeperClasses } from "@db/tables/keeper-classes";
-import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
+import type { PgColumn } from "drizzle-orm/pg-core";
 import z from "zod";
-import type { FilterColumn } from "../index.js";
+import type { FilterColumn } from "../index";
 
 export const keeperClassesFields = ["id", "name", "canAlways"] as const;
 

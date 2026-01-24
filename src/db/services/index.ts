@@ -2,7 +2,7 @@ import type { Aspect } from "@db/tables/aspects";
 import type { Domain } from "@db/tables/domains";
 import type { KeeperClass } from "@db/tables/keeper-classes";
 import type { Subclass } from "@db/tables/subclasses";
-import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
+import type { PgColumn } from "drizzle-orm/pg-core";
 import z from "zod";
 
 export type PaginatedResult<T> = {

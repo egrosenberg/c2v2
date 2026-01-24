@@ -3,7 +3,7 @@ import { getSource } from "@db/services/_lib/get-source";
 import type { SourceType } from "@db/services/index";
 import type { Aspect, AspectWithRelations } from "@db/tables/aspects";
 import { skills } from "@db/tables/skills";
-import { eq } from "node_modules/drizzle-orm/index.d/";
+import { eq } from "drizzle-orm";
 
 export async function getAspectRelations(
   aspect: Aspect,

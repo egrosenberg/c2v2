@@ -2,7 +2,7 @@ import type { Source } from "@db/services/index";
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
-import type { Skill } from "./skills.js";
+import type { Skill } from "./skills";
 
 export const aspects = pgTable("aspects", {
   id: uuid("id").primaryKey().defaultRandom(),

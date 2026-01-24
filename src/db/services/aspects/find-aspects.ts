@@ -1,17 +1,17 @@
 import z, { uuid } from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { asc, desc } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
-import type { PaginatedResult, SourceType } from "../index.js";
+import type { PaginatedResult, SourceType } from "../index";
 import {
   aspectsFieldsMap,
   aspectsFilterSchema,
   type AspectsField,
-} from "./types.js";
-import { getSource } from "../_lib/get-source.js";
-import { createAspectsFilter } from "./lib/create-aspects-filter.js";
+} from "./types";
+import { getSource } from "../_lib/get-source";
+import { createAspectsFilter } from "./lib/create-aspects-filter";
 import { aspects, type AspectWithRelations } from "@db/tables/aspects";
-import { getAspectRelations } from "./lib/get-aspect-relations.js";
+import { getAspectRelations } from "./lib/get-aspect-relations";
 
 const schema = z.object({
   filter: aspectsFilterSchema.optional().default({}),

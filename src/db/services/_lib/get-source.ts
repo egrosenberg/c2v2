@@ -1,7 +1,7 @@
 import { getDomain } from "@db/services/domains/get-domain";
 import { getKeeperClass } from "@db/services/keeper-classes/get-keeper-class";
 import { getSubclass } from "@db/services/subclasses/get-subclass";
-import type { Source, SourceType } from "../index.js";
+import type { Source, SourceType } from "../index";
 import z from "zod";
 
 const schema = z.object({

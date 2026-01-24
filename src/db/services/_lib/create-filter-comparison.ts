@@ -1,7 +1,7 @@
-import { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
+import { PgColumn } from "drizzle-orm/pg-core";
 import z from "zod";
-import type { FilterOperator } from "../index.js";
-import { eq, ilike, sql } from "node_modules/drizzle-orm/index.d/";
+import type { FilterOperator } from "../index";
+import { eq, ilike, sql } from "drizzle-orm";
 
 const schema = z.object({
   column: z.custom<PgColumn>(),

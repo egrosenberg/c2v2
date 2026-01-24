@@ -1,10 +1,10 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { fromZodError } from "zod-validation-error";
-import { aspectsFilterSchema, type AspectsFilter } from "./types.js";
+import { aspectsFilterSchema, type AspectsFilter } from "./types";
 import { aspects, type AspectWithRelations } from "@db/tables/aspects";
-import { createAspectsFilter } from "./lib/create-aspects-filter.js";
-import { getAspectRelations } from "./lib/get-aspect-relations.js";
+import { createAspectsFilter } from "./lib/create-aspects-filter";
+import { getAspectRelations } from "./lib/get-aspect-relations";
 
 export async function getAspect(
   options: AspectsFilter,

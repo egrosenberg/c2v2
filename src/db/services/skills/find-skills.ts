@@ -1,16 +1,12 @@
 import z, { uuid } from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { asc, desc } from "drizzle-orm";
 import { fromZodError } from "zod-validation-error";
-import type { PaginatedResult, SourceType } from "../index.js";
+import type { PaginatedResult, SourceType } from "../index";
 import { skills, type SkillWithRelations } from "@db/tables/skills";
-import {
-  skillsFieldsMap,
-  skillsFilterSchema,
-  type SkillsField,
-} from "./types.js";
-import { createSkillsFilter } from "./lib/create-skills-filter.js";
-import { getSource } from "../_lib/get-source.js";
+import { skillsFieldsMap, skillsFilterSchema, type SkillsField } from "./types";
+import { createSkillsFilter } from "./lib/create-skills-filter";
+import { getSource } from "../_lib/get-source";
 
 const schema = z.object({
   filter: skillsFilterSchema.optional().default({}),

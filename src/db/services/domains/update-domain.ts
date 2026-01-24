@@ -1,5 +1,5 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { domains } from "@db/tables/domains";
 import { fromZodError } from "zod-validation-error";
 import { eq } from "drizzle-orm";

@@ -1,5 +1,5 @@
 import z from "zod";
-import type { FilterColumn } from "../index.js";
+import type { FilterColumn } from "../index";
 import { aspects } from "@db/tables/aspects";
 
 export const aspectsFields = [

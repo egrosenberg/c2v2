@@ -1,11 +1,11 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { fromZodError } from "zod-validation-error";
-import { skillsFilterSchema } from "./types.js";
-import { createSkillsFilter } from "./lib/create-skills-filter.js";
+import { skillsFilterSchema } from "./types";
+import { createSkillsFilter } from "./lib/create-skills-filter";
 import { skills, type SkillWithRelations } from "@db/tables/skills";
-import { getSource } from "../_lib/get-source.js";
-import { withoutSource, type SourceType } from "../index.js";
+import { getSource } from "../_lib/get-source";
+import { withoutSource, type SourceType } from "../index";
 
 const schema = skillsFilterSchema.optional().default({}).and(withoutSource);
 

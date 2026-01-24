@@ -1,7 +1,7 @@
 import { pgTable, text, uuid } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
-import type { SuclassWithRelations } from "./subclasses.js";
+import type { SuclassWithRelations } from "./subclasses";
 
 export const keeperClasses = pgTable("keeper_classes", {
   id: uuid("id").primaryKey().defaultRandom(),

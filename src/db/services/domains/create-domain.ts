@@ -1,12 +1,12 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import {
   domains,
   domainsInsertSchema,
   type NewDomain,
 } from "@db/tables/domains";
 import { fromZodError } from "zod-validation-error";
-import { getDomain } from "./get-domain.js";
+import { getDomain } from "./get-domain";
 
 export async function createDomain(options: NewDomain) {
   try {

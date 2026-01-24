@@ -1,7 +1,6 @@
 import { subclasses } from "@db/tables/subclasses";
-import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
 import z from "zod";
-import type { FilterColumn } from "../index.js";
+import type { FilterColumn } from "../index";
 import { keeperClasses } from "@db/tables/keeper-classes";
 import { domains } from "@db/tables/domains";
 

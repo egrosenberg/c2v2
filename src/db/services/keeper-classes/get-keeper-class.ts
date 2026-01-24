@@ -1,13 +1,10 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { fromZodError } from "zod-validation-error";
 import { keeperClasses } from "@db/tables/keeper-classes";
-import { findSubclasses } from "../subclasses/find-subclasses.js";
-import {
-  keeperClassesFilterSchema,
-  type KeeperClassesFilter,
-} from "./types.js";
-import { createKeeperClassesFilter } from "./lib/create-keeper-classes-filter.js";
+import { findSubclasses } from "../subclasses/find-subclasses";
+import { keeperClassesFilterSchema, type KeeperClassesFilter } from "./types";
+import { createKeeperClassesFilter } from "./lib/create-keeper-classes-filter";
 
 export async function getKeeperClass(options: KeeperClassesFilter) {
   try {

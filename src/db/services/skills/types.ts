@@ -1,7 +1,7 @@
 import { skills } from "@db/tables/skills";
-import type { PgColumn } from "node_modules/drizzle-orm/pg-core/index.d/";
+import type { PgColumn } from "drizzle-orm/pg-core";
 import z from "zod";
-import type { FilterColumn } from "../index.js";
+import type { FilterColumn } from "../index";
 
 export const skillsFields = [
   "id",

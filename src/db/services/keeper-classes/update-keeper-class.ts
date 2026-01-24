@@ -1,5 +1,5 @@
 import z from "zod";
-import { database } from "../../index.js";
+import { database } from "../../index";
 import { fromZodError } from "zod-validation-error";
 import { eq } from "drizzle-orm";
 import { keeperClasses } from "@db/tables/keeper-classes";
