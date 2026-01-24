@@ -1,54 +1,61 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
+    "baseUrl": ".",
     "outDir": "./dist",
-
+    "paths": {
+      "@db/*": ["./src/db/*"],
+      "@/*": ["./*"],
+      "@cerberus/react/*": ["./node_modules/@cerberus/react/dist/*"]
+    },
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "preserve",
-    "target": "esnext",
     "types": ["node"],
-
-    "paths": {
-      "@db/*": ["./src/db/*.ts"],
-      "./*": ["./*.ts"]
-    },
-
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     // Other Outputs
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
     // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    "moduleResolution": "bundler",
-
     // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    // "isolatedModules": true,
+    // "noUncheckedSideEffectImports": true,
+    // emitted by nextjs
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "target": "ES2017",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
+    "jsx": "react-jsx",
+    "strict": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "include": [
+    "styled-system/**/*",
+    "src",
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "globals.d.ts",
+    "node_modules/@cerberus/**/*.ts",
+    "node_modules/@cerberus/**/*.tsx",
+    "node_modules/@cerberus/**/*.js",
+    "node_modules/@cerberus/**/*.jsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "src/app",
+    "context"
+  ],
+  "exclude": ["node_modules"]
 }

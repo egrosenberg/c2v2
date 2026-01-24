@@ -1,2 +1,8 @@
 node_modules
 dist
+## Panda
+styled-system
+styled-system-studio
+## Next
+next-env.d.ts
+.next
