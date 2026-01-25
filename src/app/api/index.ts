@@ -40,8 +40,6 @@ export function useService<
     );
   }
 
-  console.log({ options });
-
   const canExecute = useCallback(() => {
     if (options.lazyLoad) return false;
     for (const dependency of dependencies) {
@@ -92,8 +90,6 @@ export function useService<
   // Main fetch/refetch loop
   useEffect(() => {
     if (!canExecute()) return;
-
-    console.log("can run");
 
     runner = runner.finally(() => serviceFunction(serviceOptions));
   }, [serviceOptions]);

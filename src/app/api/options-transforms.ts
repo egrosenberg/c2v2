@@ -14,8 +14,6 @@ export async function getRouteParams(request: NextRequest) {
   const type = request.method;
   let options;
 
-  console.log({ name, options: searchParams.get("options"), type });
-
   if (type === "POST") {
     try {
       const json = await request.json();

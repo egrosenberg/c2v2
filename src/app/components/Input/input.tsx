@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex } from "@/styled-system/jsx";
+import { Flex } from "styled-system/jsx";
 import { ComponentProps, PropsWithChildren } from "react";
 import { cerberus } from "styled-system/jsx/factory";
 import { v1 as uuid } from "uuid";

@@ -2,7 +2,6 @@ import { NextRequest } from "next/server";
 import { getRouteParams } from "../options-transforms";
 
 export async function GET(request: NextRequest) {
-  console.log("in get");
   try {
     const { name, options } = await getRouteParams(request);
 

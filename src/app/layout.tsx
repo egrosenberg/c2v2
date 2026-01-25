@@ -1,9 +1,10 @@
 import { Poppins, Recursive } from "next/font/google";
-import { type PropsWithChildren } from "react";
-import { css, cx } from "styled-system/css";
-import CerberusConfig from "@/src/context/cerberus-config";
+import { cx } from "styled-system/css";
+import CerberusConfig from "../context/cerberus-config";
 
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import { LayoutRoutes } from ".next/dev/types/routes";
 
 const poppins = Poppins({
   display: "swap",
@@ -19,9 +20,7 @@ const recursive = Recursive({
   variable: "--font-recursive",
 });
 
-interface RootProps {}
-
-export default function RootLayout(props: PropsWithChildren<RootProps>) {
+export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
   return (
     <html
       className={cx(poppins.variable, recursive.variable)}
@@ -30,7 +29,9 @@ export default function RootLayout(props: PropsWithChildren<RootProps>) {
       lang="en"
     >
       <body>
-        <CerberusConfig>{props.children}</CerberusConfig>
+        <SessionProvider>
+          <CerberusConfig>{props.children}</CerberusConfig>
+        </SessionProvider>
       </body>
     </html>
   );
