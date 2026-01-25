@@ -26,7 +26,14 @@
     // "noUncheckedSideEffectImports": true,
     // emitted by nextjs
     "skipLibCheck": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ESNext.Promise",
+      "ES2015",
+      "ES2016"
+    ],
     "allowJs": true,
     "noEmit": true,
     "incremental": false,
