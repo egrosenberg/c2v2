@@ -5,7 +5,9 @@ import { keeperClasses } from "./keeper-classes";
 import { domains } from "./domains";
 import { aspects } from "./aspects";
 
-export const searchIndex = pgTable("search_index", {
+const TABLE_NAME = "search_index" as const;
+
+export const searchIndex = pgTable(TABLE_NAME, {
   aspect: uuid("aspect")
     .unique()
     .references(() => aspects.id, {

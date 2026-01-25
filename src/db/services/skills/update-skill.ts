@@ -16,7 +16,7 @@ export async function updateSkill(options: Options) {
 
     const [record] = await db
       .update(skills)
-      .set(parsed)
+      .set({ ...parsed, _updatedAt: new Date(Date.now()) })
       .where(eq(skills.id, parsed.id))
       .returning();
 

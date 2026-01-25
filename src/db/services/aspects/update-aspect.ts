@@ -16,7 +16,7 @@ export async function updateAspect(options: Options) {
 
     const [record] = await db
       .update(aspects)
-      .set(parsed)
+      .set({ ...parsed, _updatedAt: new Date(Date.now()) })
       .where(eq(aspects.id, parsed.id))
       .returning();
 

@@ -16,7 +16,7 @@ export async function updateDomain(options: Options) {
 
     const [record] = await db
       .update(domains)
-      .set(parsed)
+      .set({ ...parsed, _updatedAt: new Date(Date.now()) })
       .where(eq(domains.id, parsed.id))
       .returning();
 

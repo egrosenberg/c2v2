@@ -17,7 +17,7 @@ export async function updateSubclass(options: Options) {
 
     const [record] = await db
       .update(keeperClasses)
-      .set(parsed)
+      .set({ ...parsed, _updatedAt: new Date(Date.now()) })
       .where(eq(keeperClasses.id, parsed.id))
       .returning();
 
