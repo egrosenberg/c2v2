@@ -5,7 +5,11 @@ export function encodeHookOptions(options: unknown): string {
 }
 
 export function decodeHookOptions(options: string): unknown {
-  return JSON.parse(atob(options));
+  try {
+    return JSON.parse(atob(options));
+  } catch {
+    return {};
+  }
 }
 
 export async function getRouteParams(request: NextRequest) {

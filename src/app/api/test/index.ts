@@ -1,7 +1,7 @@
 import { ServiceMetaFn } from "..";
 
 export const svcTest: ServiceMetaFn<
-  (options: { str: string }) => string
+  (options: { email: string }) => string
 > = () => ({
   name: "test",
   route: "api/test",

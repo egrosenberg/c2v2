@@ -17,7 +17,7 @@ export type ServiceMetaFn<S extends ServiceFn, O = Parameters<S>> = () => {
 
 export type UseServiceOptions<O> =
   | {
-      hookOptions?: O;
+      options?: O;
       lazyLoad?: boolean;
     }
   | undefined;
@@ -33,23 +33,27 @@ export function useService<
   M extends ServiceMetaFn<S, O>,
   S extends ServiceFn,
   O = Parameters<S>,
->(metaFn: M, options: UseServiceOptions<O> = {}, dependencies: unknown[] = []) {
-  if (options.lazyLoad && dependencies.length) {
+>(
+  metaFn: M,
+  hookOptions: UseServiceOptions<O> = {},
+  dependencies: unknown[] = [],
+) {
+  if (hookOptions.lazyLoad && dependencies.length) {
     console.warn(
       "WARN: lazyLoad and dependencies array not compatible and can result in unintended behavior.",
     );
   }
 
   const canExecute = useCallback(() => {
-    if (options.lazyLoad) return false;
+    if (hookOptions.lazyLoad) return false;
     for (const dependency of dependencies) {
       if (typeof dependency === "undefined") return false;
     }
     return true;
-  }, [options.lazyLoad, dependencies]);
+  }, [hookOptions.lazyLoad, dependencies]);
 
   const [serviceOptions, setServiceOptions] = useState<O | undefined>(
-    options.hookOptions,
+    hookOptions.options,
   );
   const [data, setData] = useState<ServiceResult<S>>(undefined);
   const [ready, setReady] = useState<boolean>(false);
@@ -84,7 +88,7 @@ export function useService<
 
   // Handle dependencies
   useEffect(() => {
-    setServiceOptions(options.hookOptions);
+    setServiceOptions(hookOptions.options);
   }, dependencies);
 
   // Main fetch/refetch loop
