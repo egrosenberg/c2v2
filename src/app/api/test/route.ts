@@ -1,8 +1,7 @@
 import { NextRequest } from "next/server";
 import { getRouteParams } from "../options-transforms";
-import { getAccessToken } from "@db/services/logto/get-access-token";
-import { getLogtoUser } from "@db/services/logto/get-logto-user";
 import { getLogToRoles } from "@db/services/logto/get-logto-roles";
+import { authenticateAdmin } from "@/api/authenticate";
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,6 +9,8 @@ export async function GET(request: NextRequest) {
 
     switch (name) {
       case "test":
+        await authenticateAdmin();
+
         const data = await getLogToRoles({ email: options.email });
         return Response.json({ data });
       default:
