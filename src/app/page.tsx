@@ -7,6 +7,7 @@ import { css } from "styled-system/css";
 import { useEffect, useState } from "react";
 import { SkillWithRelations } from "@db/tables/skills";
 import { Aspect } from "@db/tables/aspects";
+import { Button, Text } from "@cerberus/react";
 
 const formatSource = (skill: SkillWithRelations | undefined) => {
   if (!skill?.source) return;
@@ -38,60 +39,52 @@ export default function Page() {
     <Flex flexDir="row" p="5rem" justifyContent="space-between" h="full">
       <Flex flexDir="column" gap="sm" alignItems="stretch" w="30rem">
         {/* <Boxre>{JSON.stringify(data, null, 2)}</pre> */}
-        <h1 aria-busy={!data} className={css({ textStyle: "heading-md" })}>
+        <Text aria-busy={!data} textStyle="heading-md">
           {skill?.name}
-        </h1>
-        <h2 aria-busy={!data} className={css({ textStyle: "heading-sm" })}>
+        </Text>
+        <Text aria-busy={!data} textStyle="heading-sm">
           {skill?.type} Skill
           {skill?.subtype && " - " + skill.subtype.replaceAll(",", " ")}
-        </h2>
-        <Box aria-busy={!data} className={css({ textStyle: "label-md" })}>
+        </Text>
+        <Text aria-busy={!data} textStyle="label-md">
           Cost: {skill?.actions} Actions{" "}
           {skill?.focus && `, ${skill.focus} Focus`}
-        </Box>
+        </Text>
         {skill?.range !== null && (
-          <Box aria-busy={!data} className={css({ textStyle: "label-md" })}>
+          <Text aria-busy={!data} textStyle="label-md">
             Range:{" "}
             {skill?.range !== undefined &&
               (isNaN(parseInt(skill?.range))
                 ? skill.range[0]?.toUpperCase() + skill.range.slice(1)
                 : `${skill?.range} ft.`)}
-          </Box>
+          </Text>
         )}
         <Flex aria-busy={!data} textStyle="body-md" gap="xs" flexDir="column">
           {skill?.description
             ?.split("\n")
             .map((str, i) => <p key={i}>{str}</p>)}
         </Flex>
-        <Box
-          aria-busy={!data}
-          className={css({ textStyle: "label-md", color: "info.text.initial" })}
-        >
+        <Text aria-busy={!data} textStyle="label-md" color="info.text.initial">
           Source - {formatSource(skill)}
-        </Box>
+        </Text>
       </Flex>
       <Flex flexDir="column" overflow="scroll">
         {skills.map((s) => (
-          <button
+          <Button
             key={s.id}
-            className={
-              s.id === skill?.id
-                ? css({
-                    fontWeight: "bold",
-                    p: "xs",
-                    backgroundColor: "info.bg.active",
-                  })
-                : css({
-                    p: "xs",
-                    _hover: {
-                      bgColor: "info.bg.hover",
-                    },
-                  })
-            }
+            usage="ghost"
+            shape="rounded"
+            p="sm"
+            palette="info"
+            className={css(
+              skill?.id === s.id
+                ? { backgroundColor: "info.bg.active" }
+                : { fontWeight: "normal" },
+            )}
             onClick={() => setSkill(skills.find((skill) => skill.id === s.id))}
           >
             {s.name}
-          </button>
+          </Button>
         ))}
       </Flex>
     </Flex>
