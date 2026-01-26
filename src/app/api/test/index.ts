@@ -3,7 +3,7 @@ import { ServiceMetaFn } from "..";
 export const svcTest: ServiceMetaFn<
   (options: { email: string }) => string
 > = () => ({
-  name: "test",
+  method: "GET",
   route: "api/test",
-  type: "GET",
+  name: "test",
 });

@@ -1,5 +1,5 @@
 import { Poppins, Recursive } from "next/font/google";
-import { cx } from "styled-system/css";
+import { css, cx } from "styled-system/css";
 import CerberusConfig from "../context/cerberus-config";
 
 import "./globals.css";
@@ -28,7 +28,7 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
       data-color-mode="dark"
       lang="en"
     >
-      <body>
+      <body className={css({ w: "100vw", h: "100vh" })}>
         <SessionProvider>
           <CerberusConfig>{props.children}</CerberusConfig>
         </SessionProvider>

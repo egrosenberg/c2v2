@@ -3,6 +3,7 @@ import { getKeeperClass } from "@db/services/keeper-classes/get-keeper-class";
 import { getSubclass } from "@db/services/subclasses/get-subclass";
 import type { Source, SourceType } from "../index";
 import z from "zod";
+import { getAspect } from "../aspects/get-aspect";
 
 const schema = z.object({
   sourceType: z.custom<SourceType>().nullable(),
@@ -22,7 +23,7 @@ export async function getSource(options: Options): Promise<Source> {
     case "subclass":
       return getSubclass({ id: parsed.sourceId });
     case "aspect":
-      return null;
+      return getAspect({ id: parsed.sourceId });
     case "domain":
       return getDomain({ id: parsed.sourceId });
     default:

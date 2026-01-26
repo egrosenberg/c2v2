@@ -10,7 +10,7 @@ export type ServiceResult<S extends ServiceFn> = Awaited<
   ReturnType<S> | undefined
 >;
 export type ServiceMetaFn<S extends ServiceFn, O = Parameters<S>> = () => {
-  type: RequestType;
+  method: RequestType;
   route: string;
   name: string;
 };
@@ -29,12 +29,8 @@ export type UseServiceReturnType<S extends ServiceFn> = {
   error: string | undefined;
 };
 
-export function useService<
-  M extends ServiceMetaFn<S, O>,
-  S extends ServiceFn,
-  O = Parameters<S>,
->(
-  metaFn: M,
+export function useService<S extends ServiceFn, O = Parameters<S>>(
+  metaFn: ServiceMetaFn<S, O>,
   hookOptions: UseServiceOptions<O> = {},
   dependencies: unknown[] = [],
 ) {
@@ -67,7 +63,7 @@ export function useService<
 
     const { data, error } = await runQuery({
       hookOptions: options,
-      type: meta.type,
+      type: meta.method,
       name: meta.name,
       route: meta.route,
     });
