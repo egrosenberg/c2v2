@@ -1,0 +1,362 @@
+[
+  {
+    "id": "bae9a731-19bd-43b0-9a2f-c81454e570f8",
+    "name": "Colossus",
+    "category": "Gladiator",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "8c143c60-d2a2-4973-a383-734d90aa840d",
+    "description": "When rolling damage for a weapon wielded with two hands, treat all 1s and 2s rolled as 3s."
+  },
+  {
+    "id": "a610ed95-ea24-4109-846f-147e1e7e9708",
+    "name": "Bullwark",
+    "category": "Gladiator",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "8c143c60-d2a2-4973-a383-734d90aa840d",
+    "description": "Reduce all Physical damage you take by 2."
+  },
+  {
+    "id": "639f56ac-e76f-4fe8-a684-22e507debc0b",
+    "name": "Tail",
+    "category": "Gladiator",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "8c143c60-d2a2-4973-a383-734d90aa840d",
+    "description": "You grow a reptilian tail. It is a natural weapon that has 10-foot reach and deals d12 damage."
+  },
+  {
+    "id": "6bcd30a5-a881-4560-8c6e-026b2087ff38",
+    "name": "Horns",
+    "category": "Gladiator",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "8c143c60-d2a2-4973-a383-734d90aa840d",
+    "description": "You grow a set of horns. They are a natural weapon that deal d10 damage."
+  },
+  {
+    "id": "a162ea97-54d5-43f2-b319-a4fca11510ef",
+    "name": "Retribution",
+    "category": "Sunmane",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
+    "description": "Whenever a creature deals melee damage to you, you may deal d4 Fire damage to them."
+  },
+  {
+    "id": "fdfbf83b-5746-4cb8-b28b-5fef5ab1e6ca",
+    "name": "Sunblade",
+    "category": "Sunmane",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
+    "description": "Whenever you deal damage with a melee weapon you may change the damage type to Fire."
+  },
+  {
+    "id": "a52e61e1-7d4e-4c4d-b305-c759bdb1666a",
+    "name": "Stoneskin",
+    "category": "Sunmane",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
+    "description": "Reduce all Air, Earth, Fire, and Poison damage you take by 2."
+  },
+  {
+    "id": "77139018-131f-425a-ae94-5efd005b5391",
+    "name": "Toxic",
+    "category": "Sunmane",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
+    "description": "Whenever you deal melee damage that leaves a creature Unwarded you may Poison that creature."
+  },
+  {
+    "id": "a87b259c-065c-468a-8ac7-7420679a77d9",
+    "name": "Keen-Eyed",
+    "category": "Executioner",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
+    "description": "The range of your ranged weapons and ranged weapon skills are increased by 15 feet."
+  },
+  {
+    "id": "31451ffe-2597-4b23-8521-03327b718394",
+    "name": "Wayfaring",
+    "category": "Executioner",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
+    "description": "You are unaffected by difficult terrain."
+  },
+  {
+    "id": "e701cf6b-09f6-4ec7-9847-e5a8888a5490",
+    "name": "Nimble",
+    "category": "Executioner",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
+    "description": "Your movement doesn’t provoke opportunity attacks and your attacks don’t provoke counterattacks."
+  },
+  {
+    "id": "9f28e0af-ec2d-46f2-a7f1-3f24e94ad4fc",
+    "name": "Duplicitous",
+    "category": "Executioner",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
+    "description": "When wielding two light weapons, your off-handed weapon deals its main-hand damage."
+  },
+  {
+    "id": "371fffd3-95cc-46e6-83aa-ea8ace6eae47",
+    "name": "Frigid",
+    "category": "Moondancer",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
+    "description": "Your Strikes and Skills deal an additional d6 Water damage to Chilled targets."
+  },
+  {
+    "id": "2e1ada62-1c5e-40bc-a01a-9336253cb322",
+    "name": "Moonblade",
+    "category": "Moondancer",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
+    "description": "Whenever you deal damage with a melee weapon you may change the damage type to Water."
+  },
+  {
+    "id": "3690d8bb-6d8c-4fc7-9268-f31fc17f1028",
+    "name": "Zephyr",
+    "category": "Moondancer",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
+    "description": "Your speed is increased by 10 feet."
+  },
+  {
+    "id": "709de36e-a53a-4343-8230-4738f468d533",
+    "name": "Voltaic",
+    "category": "Moondancer",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
+    "description": "Reduce all Water and Air damage you take by 2. You are immune to being Shocked."
+  },
+  {
+    "id": "a32d7537-39de-4f9f-a3af-71299a9900f3",
+    "name": "Blazing",
+    "category": "Flamespeaker",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
+    "description": "When rolling fire damage, treat any 1s and 2s rolled as 3s."
+  },
+  {
+    "id": "723654e7-963c-4dd1-afeb-5daf886cbcb9",
+    "name": "Rekindling",
+    "category": "Flamespeaker",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
+    "description": "Whenever you deal fire damage you regain half that much health."
+  },
+  {
+    "id": "aea2d139-d90b-4a55-99ee-57a032c60aa6",
+    "name": "Terramorph",
+    "category": "Flamespeaker",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
+    "description": "Once per turn, when you deal Earth damage to a creature, you may reduce their movement by 5 until the end of their next turn."
+  },
+  {
+    "id": "61d60193-7820-4eb0-8b3e-3a2b7b7b4b27",
+    "name": "Serpentine",
+    "category": "Flamespeaker",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
+    "description": "If you would take poison damage, heal that much instead."
+  },
+  {
+    "id": "01c58618-1ede-49df-b90c-d51e886f8de9",
+    "name": "Rejuvination",
+    "category": "Tidecaller",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
+    "description": "Whenever you roll dice to restore a creature’s Health or Ward, treat any 1s and 2s rolled as 3s"
+  },
+  {
+    "id": "eefbda70-ab19-427f-8f91-41cb30a15a99",
+    "name": "Frostbitten",
+    "category": "Tidecaller",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
+    "description": "Whenever you Freeze a creature, deal 1d10 Water damage to it."
+  },
+  {
+    "id": "b104cffc-2af3-4529-8c61-9a8eaca65632",
+    "name": "Stormseeker",
+    "category": "Tidecaller",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
+    "description": "Once per turn, when you deal Air damage to a creature, you may fly up to half your movement."
+  },
+  {
+    "id": "674e5564-f6a7-46b8-b17d-e7e2572ce3ae",
+    "name": "Repulsor",
+    "category": "Tidecaller",
+    "categoryPrefix": "",
+    "sourceType": "subclass",
+    "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
+    "description": "Whenever you deal Air damage to a creature you may push it up to 10 feet away from you."
+  },
+  {
+    "id": "c7639ab1-27ba-4f7d-aa1b-f4f9eceed780",
+    "name": "Larger than Life",
+    "category": "Brutal",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
+    "description": "You grow 1 foot taller and can carry twice as much."
+  },
+  {
+    "id": "d9bc1cf0-a8dd-49c8-a2de-241acf4958fe",
+    "name": "Heavy Handed",
+    "category": "Brutal",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
+    "description": "You can wield any two weapons at once. When wielding one or more two-handed weapon in one hand your Strikes take an additional action."
+  },
+  {
+    "id": "20396031-0486-4a4e-bfd5-c0c80ed06c38",
+    "name": "Barbarian",
+    "category": "Brutal",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
+    "description": "Your melee weapons deal +1 damage."
+  },
+  {
+    "id": "cd3bf5e0-3f94-467a-a2aa-ea65d4160ab2",
+    "name": "Panthera",
+    "category": "Dragon",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
+    "description": "You grow feline fangs, they are a natural weapon that deals d8 damage."
+  },
+  {
+    "id": "cf6e1982-8ea1-408b-aee6-97657a2d87ca",
+    "name": "Covert",
+    "category": "Deft",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
+    "description": "Your Strikes and Skills deal +d6 damage to targets who can’t see you."
+  },
+  {
+    "id": "e8517e9f-af98-44b9-9c53-39088c45f598",
+    "name": "Sanguine",
+    "category": "Deft",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
+    "description": "Your skills and weapons that would make a target Bleed if Unguarded make them bleed regardless of Guard."
+  },
+  {
+    "id": "30037e8c-3270-416e-8eee-5c5762ca946f",
+    "name": "Monastic",
+    "category": "Deft",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
+    "description": "Your body is a natural weapon that deals 2d6 damage."
+  },
+  {
+    "id": "b60d884f-ddef-4cba-91fc-d339bd4d08a4",
+    "name": "Typhon",
+    "category": "Dragon",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
+    "description": "You grow irridescent scales. Your heart beats faster, your blood flows pitch. Your movement is increased by 5 feet."
+  },
+  {
+    "id": "1268d6d2-08bf-4e41-93e3-bc81255e115a",
+    "name": "Angelic/Demonic",
+    "category": "Sol",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "description": "You sprout a pair of fiery wings. You gain a fly speed equal to your walk speed."
+  },
+  {
+    "id": "4e13c84f-7dd7-4873-893a-1f25370e3400",
+    "name": "Stonechosen",
+    "category": "Sol",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "description": "You have tremorsense out to a distance of 60 feet and you can strike unarmed for d8 Earth damage."
+  },
+  {
+    "id": "f988998c-b5b4-41c2-bb98-d78ea11510e5",
+    "name": "Lupus",
+    "category": "Sol",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "description": "You can effortlessly conjure fiery claws. Your dominant hand deals d6 Fire damage and your non-dominant hand deals d4."
+  },
+  {
+    "id": "26d08259-a125-4fe8-9b2a-99e5040e69e9",
+    "name": "Fire",
+    "category": "Dragon",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "description": "You grow crimson and golden scales and gain 50% Fire resistance."
+  },
+  {
+    "id": "bec41a4a-9514-40c6-b56b-5ed79e154f03",
+    "name": "Depth Strider",
+    "category": "Luna",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
+    "description": "You sprout gills and grow webbing between fingers and toes. You can breathe underwater and gain a swim speed equal to your walk speed."
+  },
+  {
+    "id": "f45c8fba-0a8d-4fd1-8e68-8b417046b0ce",
+    "name": "Octopodal",
+    "category": "Luna",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
+    "description": "You can effortlessly conjure watery tentacles. They count as natural weapons that deal d8 Water damage. They have Reach and damaging a target with them makes it Wet."
+  },
+  {
+    "id": "c878620a-f1dc-4a0f-b958-d594b9509869",
+    "name": "Wind Blessed",
+    "category": "Luna",
+    "categoryPrefix": "",
+    "sourceType": "domain",
+    "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
+    "description": "Whenever you use an Air skill you may fly up to half your speed immediately, without provoking opportunity attacks."
+  },
+  {
+    "id": "9293f3b8-e2c0-40ca-b122-66b625bef908",
+    "name": "Ice",
+    "category": "Dragon",
+    "categoryPrefix": "the",
+    "sourceType": "domain",
+    "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
+    "description": "You grow white and silver scales and gain 50% Water resistance."
+  }
+]

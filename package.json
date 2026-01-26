@@ -7,6 +7,7 @@
     "migrate:gen": "npx drizzle-kit generate",
     "migrate:run": "npx drizzle-kit migrate",
     "db:truncate": "./scripts/truncate-db.sh",
+    "db:seed": "npx tsx src/seed/run-seeding.ts",
     "dev": "rm -rf .next && next dev",
     "build": "next build",
     "start": "next start",

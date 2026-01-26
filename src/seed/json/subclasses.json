@@ -1,0 +1,38 @@
+[
+  {
+    "id": "8c143c60-d2a2-4973-a383-734d90aa840d",
+    "name": "Gladiator",
+    "domainId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
+    "classId": "cd911055-78c5-43bb-8292-48a31e3a23cd"
+  },
+  {
+    "id": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
+    "name": "Sunmane",
+    "domainId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "classId": "cd911055-78c5-43bb-8292-48a31e3a23cd"
+  },
+  {
+    "id": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
+    "name": "Executioner",
+    "domainId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
+    "classId": "ea16be41-63e7-4f07-8719-37339247197d"
+  },
+  {
+    "id": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
+    "name": "Moondancer",
+    "domainId": "305c8820-7d95-491b-b684-10073711d47b",
+    "classId": "ea16be41-63e7-4f07-8719-37339247197d"
+  },
+  {
+    "id": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
+    "name": "Flamespeaker",
+    "domainId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
+    "classId": "e42199cc-591d-489b-8cb3-f45f25610c05"
+  },
+  {
+    "id": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
+    "name": "Tidecaller",
+    "domainId": "305c8820-7d95-491b-b684-10073711d47b",
+    "classId": "e42199cc-591d-489b-8cb3-f45f25610c05"
+  }
+]

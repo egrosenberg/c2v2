@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cd911055-78c5-43bb-8292-48a31e3a23cd",
+    "name": "Warden",
+    "canAlways": [
+      "Stand up for those you care for.",
+      "Keep both eyes on someone.",
+      "Stamp your foot and get everyone\u2019s attention.",
+      "Perform a display of strength.",
+      "Recount a tale of battles old.",
+      "Ask: \u201CWhat aren\u2019t you telling me?\u201D",
+      "Offer to teach someone about something you have no expertise in. If they take the offer, they get a Luck Point."
+    ]
+  },
+  {
+    "id": "ea16be41-63e7-4f07-8719-37339247197d",
+    "name": "Skylark",
+    "canAlways": [
+      "\"Have something you\u2019re not supposed to.",
+      "Find a way out from between a rock and a hard place.",
+      "Spill the beans.",
+      "Tell which way is north.",
+      "Speak the language of thieves.",
+      "Keep calm and focus.",
+      "Exclaim: \u201CDo I have the deal for you!\u201D If they hear you out, they get a Luck Point.\"\r\n"
+    ]
+  },
+  {
+    "id": "e42199cc-591d-489b-8cb3-f45f25610c05",
+    "name": "Magus",
+    "canAlways": [
+      "\"Perform a minor miracle.",
+      "Jot down something important.",
+      "Put your faith in those around you.",
+      "Do something out of the ordinairy.",
+      "Cite your sources, hoping the help your case.",
+      "Recall the teachings of your master.",
+      "Ask: \u201CCould you explain?\u201D If they do, they get a Luck Point.\""
+    ]
+  }
+]

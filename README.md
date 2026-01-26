@@ -38,6 +38,9 @@ npm run migrate:run
 
 # Empty out DB tables
 npm run db:truncate
+
+# Run seeding functions
+npm run db:seed
 ```
 
 This software is provided "as is" and free of charge. See `LICENSE.txt` for more information.

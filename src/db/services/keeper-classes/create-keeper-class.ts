@@ -21,7 +21,7 @@ export async function createKeeperClass(options: NewKeeperClass) {
       .onConflictDoNothing()
       .returning();
 
-    if (!record) throw new Error("Failed to create domain");
+    if (!record) throw new Error("Failed to create keeper class");
 
     await db.insert(searchIndex).values({ keeperClass: record.id });
 
