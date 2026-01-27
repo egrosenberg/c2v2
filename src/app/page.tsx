@@ -75,10 +75,10 @@ export default function Page() {
             usage="ghost"
             shape="rounded"
             p="sm"
-            palette="info"
+            palette="action"
             className={css(
               skill?.id === s.id
-                ? { backgroundColor: "info.bg.active" }
+                ? { backgroundColor: "action.bg.active" }
                 : { fontWeight: "normal" },
             )}
             onClick={() => setSkill(skills.find((skill) => skill.id === s.id))}

@@ -5,6 +5,7 @@ import CerberusConfig from "../context/cerberus-config";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { LayoutRoutes } from ".next/dev/types/routes";
+import { Theme } from "@cerberus/react";
 
 const poppins = Poppins({
   display: "swap",
@@ -24,7 +25,7 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
   return (
     <html
       className={cx(poppins.variable, recursive.variable)}
-      data-panda-theme="cerberus"
+      data-panda-theme="elysium"
       data-color-mode="dark"
       lang="en"
     >

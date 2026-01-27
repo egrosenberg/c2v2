@@ -2,21 +2,40 @@ import {
   createCerberusConfig,
   createCerberusPreset,
 } from "@cerberus/panda-preset";
+import {
+  presetAcheronTheme,
+  getThemeName as getAcheronThemeName,
+} from "@cerberus/preset-acheron-theme";
+import {
+  presetElysiumTheme,
+  getThemeName as getElysiumThemeName,
+} from "@cerberus/preset-elysium-theme";
 
 export default createCerberusConfig({
-  presets: [createCerberusPreset()],
-
-  preflight: true,
   clean: true,
-
-  outdir: "styled-system",
+  minify: process.env.NODE_ENV === "production",
 
   include: [
-    "./node_modules/@cerberus/react/**/*.{ts,tsx,js,jsx}", // track @cerberus/react components
-    "./src/**/*.{ts,tsx}",
+    "./node_modules/@cerberus-design/react/**/*.{ts,tsx,js,jsx}",
+    "./src/app/**/*.{ts,tsx}",
   ],
   exclude: [],
+
+  presets: [createCerberusPreset(), presetAcheronTheme, presetElysiumTheme],
+
   staticCss: {
-    themes: ["cerberus"],
+    themes: ["cerberus", getAcheronThemeName(), getElysiumThemeName()],
+  },
+
+  theme: {
+    extend: {
+      recipes: {
+        button: {
+          defaultVariants: {
+            shape: "default",
+          },
+        },
+      },
+    },
   },
 });

@@ -34,6 +34,8 @@
   "dependencies": {
     "@carbon/icons-react": "^11.73.0",
     "@cerberus/panda-preset": "npm:@jsr/cerberus__panda-preset@^0.25.0-rc.7",
+    "@cerberus/preset-acheron-theme": "npm:@jsr/cerberus__preset-acheron-theme@^0.25.1-rc.1",
+    "@cerberus/preset-elysium-theme": "npm:@jsr/cerberus__preset-elysium-theme@^0.25.1-rc.1",
     "@cerberus/react": "npm:@cerberus-design/react@^0.25.0",
     "@logto/next": "^4.2.8",
     "@pandacss/dev": "^1.8.1",
