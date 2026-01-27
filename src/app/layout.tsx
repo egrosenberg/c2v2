@@ -6,6 +6,7 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { LayoutRoutes } from ".next/dev/types/routes";
 import { Theme } from "@cerberus/react";
+import { CenturySchoolbook, UncialAntiqua } from "./fonts";
 
 const poppins = Poppins({
   display: "swap",
@@ -24,7 +25,12 @@ const recursive = Recursive({
 export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
   return (
     <html
-      className={cx(poppins.variable, recursive.variable)}
+      className={cx(
+        poppins.variable,
+        recursive.variable,
+        UncialAntiqua.variable,
+        CenturySchoolbook.variable,
+      )}
       data-panda-theme="elysium"
       data-color-mode="dark"
       lang="en"

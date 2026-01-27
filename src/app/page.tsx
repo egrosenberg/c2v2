@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { SkillWithRelations } from "@db/tables/skills";
 import { Aspect } from "@db/tables/aspects";
 import { Button, Text } from "@cerberus/react";
+import { UncialAntiqua } from "./fonts";
 
 const formatSource = (skill: SkillWithRelations | undefined) => {
   if (!skill?.source) return;
@@ -39,7 +40,7 @@ export default function Page() {
     <Flex flexDir="row" p="5rem" justifyContent="space-between" h="full">
       <Flex flexDir="column" gap="sm" alignItems="stretch" w="30rem">
         {/* <Boxre>{JSON.stringify(data, null, 2)}</pre> */}
-        <Text aria-busy={!data} textStyle="heading-md">
+        <Text aria-busy={!data} textStyle="heading-lg">
           {skill?.name}
         </Text>
         <Text aria-busy={!data} textStyle="heading-sm">
@@ -64,7 +65,7 @@ export default function Page() {
             ?.split("\n")
             .map((str, i) => <p key={i}>{str}</p>)}
         </Flex>
-        <Text aria-busy={!data} textStyle="label-md" color="info.text.initial">
+        <Text aria-busy={!data} textStyle="label-md" color="success.text.100">
           Source - {formatSource(skill)}
         </Text>
       </Flex>

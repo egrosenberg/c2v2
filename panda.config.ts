@@ -21,7 +21,14 @@ export default createCerberusConfig({
   ],
   exclude: [],
 
-  presets: [createCerberusPreset(), presetAcheronTheme, presetElysiumTheme],
+  presets: [
+    createCerberusPreset({
+      sansFont: "schoolbook",
+      displayFont: "uncial",
+    }),
+    presetAcheronTheme,
+    presetElysiumTheme,
+  ],
 
   staticCss: {
     themes: ["cerberus", getAcheronThemeName(), getElysiumThemeName()],
@@ -34,6 +41,12 @@ export default createCerberusConfig({
           defaultVariants: {
             shape: "default",
           },
+        },
+      },
+      tokens: {
+        fonts: {
+          uncial: { value: "var(--font-uncial-antiqua), display" },
+          schoolbook: { value: "var(--font-century-schoolbook), serif" },
         },
       },
     },
