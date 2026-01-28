@@ -5,8 +5,12 @@ import CerberusConfig from "../context/cerberus-config";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { LayoutRoutes } from ".next/dev/types/routes";
-import { Theme } from "@cerberus/react";
+import { cerberus, ColorModes, Theme, ThemeProvider } from "@cerberus/react";
 import { CenturySchoolbook, UncialAntiqua } from "./fonts";
+import { TopNav } from "./components/TopNav/TopNav";
+import { Metadata } from "next";
+import { Suspense } from "react";
+import { CookiesProvider } from "next-client-cookies/server";
 
 const poppins = Poppins({
   display: "swap",
@@ -21,6 +25,10 @@ const recursive = Recursive({
   weight: ["400"],
   variable: "--font-recursive",
 });
+export const metadata: Metadata = {
+  title: "Celestus",
+  description: "Celestus TTRPG",
+};
 
 export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
   return (
@@ -35,9 +43,23 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
       data-color-mode="dark"
       lang="en"
     >
-      <body className={css({ w: "100vw", h: "100vh" })}>
+      <body className={css({ w: "100vw", h: "100vh", py: "6rem" })}>
         <SessionProvider>
-          <CerberusConfig>{props.children}</CerberusConfig>
+          <CerberusConfig>
+            <Suspense>
+              <CookiesProvider>
+                <ThemeProvider defaultTheme="elysium" defaultColorMode={"dark"}>
+                  <TopNav />
+                  <cerberus.main
+                    role="main"
+                    css={{ h: "full", w: "full", px: "lg" }}
+                  >
+                    {props.children}
+                  </cerberus.main>
+                </ThemeProvider>
+              </CookiesProvider>
+            </Suspense>
+          </CerberusConfig>
         </SessionProvider>
       </body>
     </html>
