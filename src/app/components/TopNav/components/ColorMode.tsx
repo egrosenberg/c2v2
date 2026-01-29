@@ -1,8 +1,13 @@
 "use client";
 
 import { Moon, Sun } from "@carbon/icons-react";
-import { ColorModes, IconButton, Show, useThemeContext } from "@cerberus/react";
-import { MouseEvent, useEffect } from "react";
+import {
+  type ColorModes,
+  IconButton,
+  Show,
+  useThemeContext,
+} from "@cerberus/react";
+import { type MouseEvent, useEffect } from "react";
 import { useCookies } from "next-client-cookies";
 
 export function ColorMode() {

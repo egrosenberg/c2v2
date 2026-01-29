@@ -5,8 +5,8 @@ import { useService } from "@/api";
 import { svcFindSkills } from "@/api/skills";
 import { css } from "styled-system/css";
 import { useEffect, useState } from "react";
-import { SkillWithRelations } from "@db/tables/skills";
-import { Aspect } from "@db/tables/aspects";
+import type { SkillWithRelations } from "@db/tables/skills";
+import type { Aspect } from "@db/tables/aspects";
 import { Button, Text } from "@cerberus/react";
 import { MainContentWrapper } from "@/components/Wrappers/MainContentWrapper";
 

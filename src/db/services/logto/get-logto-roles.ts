@@ -2,7 +2,7 @@ import z from "zod";
 import { getAccessToken } from "./get-access-token";
 import { fromZodError } from "zod-validation-error";
 import { getLogtoUser } from "./get-logto-user";
-import { LogtoRole } from "./types";
+import type { LogtoRole } from "./types";
 
 const schema = z.object({
   email: z.string(),

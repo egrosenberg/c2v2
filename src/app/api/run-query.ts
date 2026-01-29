@@ -1,4 +1,4 @@
-import { RequestType, ServiceFn, ServiceMetaFn } from ".";
+import type { RequestType } from ".";
 import { encodeHookOptions } from "./options-transforms";
 
 export type RunQueryOptions = {

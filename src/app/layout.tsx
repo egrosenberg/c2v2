@@ -4,11 +4,11 @@ import CerberusConfig from "../context/cerberus-config";
 
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-import { LayoutRoutes } from ".next/dev/types/routes";
-import { cerberus, ColorModes, Theme, ThemeProvider } from "@cerberus/react";
+import type { LayoutRoutes } from ".next/dev/types/routes";
+import { cerberus, ThemeProvider } from "@cerberus/react";
 import { CenturySchoolbook, UncialAntiqua } from "./fonts";
 import { TopNav } from "./components/TopNav/TopNav";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CookiesProvider } from "next-client-cookies/server";
 

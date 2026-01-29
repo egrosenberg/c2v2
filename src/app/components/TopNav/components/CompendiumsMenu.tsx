@@ -1,7 +1,7 @@
 "use client";
 
 import { Book } from "@carbon/icons-react";
-import { NavMenu, NavMenuItemProps } from "./NavMenu";
+import { NavMenu, type NavMenuItemProps } from "./NavMenu";
 
 export function CompendiumsMenu() {
   const compendiumItems: NavMenuItemProps[] = [

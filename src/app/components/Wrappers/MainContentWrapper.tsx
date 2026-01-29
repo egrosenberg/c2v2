@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { Box, Flex } from "styled-system/jsx";
 
 export function MainContentWrapper({ children }: PropsWithChildren<{}>) {

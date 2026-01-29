@@ -1,6 +1,10 @@
 "use client";
 
-import { Button, ButtonProps, CerberusPrimitiveProps } from "@cerberus/react";
+import {
+  Button,
+  type ButtonProps,
+  type CerberusPrimitiveProps,
+} from "@cerberus/react";
 
 type NavButtonProps = CerberusPrimitiveProps<ButtonProps> & { text: string };
 

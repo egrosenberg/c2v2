@@ -9,7 +9,7 @@ import {
   Text,
 } from "@cerberus/react";
 import Link from "next/link";
-import { UrlObject } from "url";
+import type { UrlObject } from "url";
 
 export type NavMenuItemProps = {
   label: string;

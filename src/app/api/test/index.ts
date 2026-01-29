@@ -1,4 +1,4 @@
-import { ServiceMetaFn } from "..";
+import type { ServiceMetaFn } from "..";
 
 export const svcTest: ServiceMetaFn<
   (options: { email: string }) => string

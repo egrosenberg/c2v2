@@ -1,5 +1,5 @@
 import { getSkill } from "@db/services/skills/get-skill";
-import { ServiceMetaFn } from "..";
+import type { ServiceMetaFn } from "..";
 import { findSkills } from "@db/services/skills/find-skills";
 
 const route = "/api/skills";

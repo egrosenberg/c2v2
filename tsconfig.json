@@ -5,8 +5,7 @@
     "outDir": "./dist",
     "paths": {
       "@db/*": ["./src/db/*"],
-      "@/*": ["./src/app/*"],
-      "@cerberus/react/*": ["./node_modules/@cerberus/react/dist/*"]
+      "@/*": ["./src/app/*"]
     },
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -46,7 +45,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "strict": true
+    "strict": true,
+    "verbatimModuleSyntax": true
   },
   "include": [
     "styled-system/**/*",

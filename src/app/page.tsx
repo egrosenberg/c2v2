@@ -4,8 +4,7 @@ import { Box, Flex } from "styled-system/jsx";
 import { useService } from "@/api";
 import { svcFindSkills } from "./api/skills";
 import { useEffect, useState } from "react";
-import { SkillWithRelations } from "@db/tables/skills";
-import { Aspect } from "@db/tables/aspects";
+import type { SkillWithRelations } from "@db/tables/skills";
 import { Text } from "@cerberus/react";
 import { MainContentWrapper } from "./components/Wrappers/MainContentWrapper";
 
