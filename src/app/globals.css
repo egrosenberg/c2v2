@@ -1,1 +1,5 @@
 @layer reset, base, tokens, recipes, utilities;
+
+* {
+  --table-zebra-bg: var(--cerberus-colors-page-surface-initial);
+}

@@ -724,7 +724,7 @@
   {
     "id": "d280ce33-4199-4662-8428-017c5d5c2b68",
     "name": "Flaming Frenzy",
-    "type": "Weapon",
+    "type": "Magic",
     "subtype": "Fire",
     "actions": 3,
     "range": "weapon",
@@ -770,7 +770,7 @@
   {
     "id": "1d9a1883-373c-4dd4-8494-3fa8ca8de77e",
     "name": "Lash Out",
-    "type": "Weapon",
+    "type": "Magic",
     "subtype": "Water",
     "actions": 2,
     "range": "weapon",

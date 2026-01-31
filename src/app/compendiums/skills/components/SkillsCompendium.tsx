@@ -9,6 +9,8 @@ import type { SkillWithRelations } from "@db/tables/skills";
 import type { Aspect } from "@db/tables/aspects";
 import { Button, Text } from "@cerberus/react";
 import { MainContentWrapper } from "@/components/Wrappers/MainContentWrapper";
+import { Table } from "@/components/Table/Table";
+import { getSkillColumns } from "../lib/getSkillColumns";
 
 const formatSource = (skill: SkillWithRelations | undefined) => {
   if (!skill?.source) return;
@@ -62,13 +64,26 @@ export function SkillsCompendium() {
           maxH="full"
           w="full"
           maxWidth="77rem"
+          gap="lg"
         >
-          <Flex flexDir="column" gap="sm" alignItems="stretch" w="30rem">
+          <Flex
+            flexDir="column"
+            gap="sm"
+            alignItems="stretch"
+            w="40rem"
+            bgColor="page.surface.200"
+            p="md"
+            h="min-content"
+            rounded="md"
+            boxShadow="md"
+          >
             {/* <Boxre>{JSON.stringify(data, null, 2)}</pre> */}
             <Text
               aria-busy={busy}
               textStyle="heading-lg"
               fontVariant="small-caps"
+              borderBottom="1px solid"
+              borderBottomColor="page.border.200"
             >
               {skill?.name}
             </Text>
@@ -108,34 +123,60 @@ export function SkillsCompendium() {
               Source - {formatSource(skill)}
             </Text>
           </Flex>
-          <Flex
-            flexDir="column"
-            overflow="scroll"
-            bgColor="page.surface.200"
-            p="md"
-            rounded="lg"
+          <Box
+            backgroundColor="page.surface.300"
+            maxH="full"
+            w="full"
+            p="xs"
+            rounded="md"
+            border="2px solid"
+            borderColor="page.border.initial"
+            boxShadow="md"
           >
-            {skills.map((s) => (
-              <Button
-                key={s.id}
-                usage="ghost"
-                shape="rounded"
-                rounded="md"
-                p="sm"
-                palette="action"
-                className={css(
-                  skill?.id === s.id
-                    ? { backgroundColor: "action.bg.active" }
-                    : { fontWeight: "normal" },
-                )}
-                onClick={() =>
-                  setSkill(skills.find((skill) => skill.id === s.id))
-                }
-              >
-                {s.name}
-              </Button>
-            ))}
-          </Flex>
+            <Table
+              data={skills}
+              columns={getSkillColumns()}
+              rootProps={{
+                css: {
+                  rounded: "md",
+                  maxW: "100%",
+                  maxH: "full",
+                  borderCollapse: "separate",
+                },
+                decoration: "zebra",
+              }}
+              classNames={{
+                cell: css({
+                  textStyle: "body-sm",
+                  maxH: "min-content",
+                  borderTop: "none",
+                  borderBottom: "none",
+                  p: "sm",
+                  cursor: "default",
+                }),
+                headCell: css({
+                  p: "sm",
+                  fontWeight: "bold",
+                  backgroundColor: "transparent",
+                  fontVariant: "small-caps",
+                }),
+                body: css({ backgroundColor: "transparent" }),
+                headRow: css({
+                  bgColor: "page.surface.300",
+                  outline: "1px solid",
+                }),
+              }}
+              selectProps={{
+                selected: skill,
+                setSelected: setSkill,
+                className: css({
+                  outline: "1px solid",
+                  bgColor: "page.surface.300",
+                }),
+              }}
+              scrollable
+            />
+          </Box>
         </Flex>
       </Flex>
     </MainContentWrapper>
