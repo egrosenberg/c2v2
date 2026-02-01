@@ -5,11 +5,16 @@ import { runQuery } from "./run-query";
 
 export type RequestType = "GET" | "POST";
 
-export type ServiceFn = (...args: any) => any;
-export type ServiceResult<S extends ServiceFn> = Awaited<
-  ReturnType<S> | undefined
->;
-export type ServiceMetaFn<S extends ServiceFn, O = Parameters<S>> = () => {
+export type ServiceFn = (options: any) => any;
+export type ServiceResult<S extends ServiceFn> =
+  | Awaited<ReturnType<S>>
+  | undefined;
+export type ServiceArguments<T extends (options: any) => any> =
+  Parameters<T>[0];
+export type ServiceMetaFn<
+  S extends ServiceFn,
+  O = ServiceArguments<S>,
+> = () => {
   method: RequestType;
   route: string;
   name: string;
@@ -29,7 +34,7 @@ export type UseServiceReturnType<S extends ServiceFn> = {
   error: string | undefined;
 };
 
-export function useService<S extends ServiceFn, O = Parameters<S>>(
+export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
   metaFn: ServiceMetaFn<S, O>,
   hookOptions: UseServiceOptions<O> = {},
   dependencies: unknown[] = [],

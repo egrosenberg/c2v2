@@ -1,15 +1,17 @@
 import { formatSource } from "@/compendiums/lib/formatSource";
 import { Text } from "@cerberus/react";
 import type { SkillWithRelations } from "@db/tables/skills";
-import { Flex } from "styled-system/jsx";
+import { Box, Flex } from "styled-system/jsx";
 
 export function SkillDescription({
   skill,
   busy,
 }: {
-  skill: SkillWithRelations | undefined;
+  skill?: SkillWithRelations | undefined;
   busy?: boolean;
 }) {
+  if (!skill && !busy) return;
+
   return (
     <Flex
       flexDir="column"

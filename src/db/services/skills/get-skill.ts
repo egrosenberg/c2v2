@@ -7,13 +7,17 @@ import { skills, type SkillWithRelations } from "@db/tables/skills";
 import { getSource } from "../_lib/get-source";
 import { withoutSource, type SourceType } from "../index";
 
-const schema = skillsFilterSchema.optional().default({}).and(withoutSource);
+const schema = skillsFilterSchema
+  .optional()
+  .default({})
+  .and(withoutSource)
+  .and(z.object({ assert: z.boolean().optional().default(true) }));
 
 type Options = z.input<typeof schema>;
 
 export async function getSkill(
   options: Options,
-): Promise<SkillWithRelations | null> {
+): Promise<SkillWithRelations | undefined> {
   try {
     const parsed = schema.parse(options);
 
@@ -23,7 +27,11 @@ export async function getSkill(
 
     const [record] = await db.select().from(skills).where(filter).limit(1);
 
-    if (!record) return null;
+    if (!record) {
+      if (parsed.assert)
+        throw new Error("No skill found with " + JSON.stringify(parsed));
+      return;
+    }
 
     const source = parsed.withoutSource
       ? null
