@@ -10,7 +10,6 @@ export function BusyCell() {
 }
 
 export function BusyRows({ count, nCols }: { count: number; nCols: number }) {
-  console.log({ nCols });
   return (
     <For each={new Array(count).keys().toArray()}>
       {(i) => (

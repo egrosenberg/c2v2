@@ -7,7 +7,6 @@ export function CompendiumsMenu() {
   const compendiumItems: NavMenuItemProps[] = [
     {
       label: "Skills",
-      onClick: () => console.log("SKILLS"),
       href: "/compendiums/skills",
       icon: <Book />,
     },

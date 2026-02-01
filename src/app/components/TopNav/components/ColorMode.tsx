@@ -15,7 +15,6 @@ export function ColorMode() {
   useEffect(() => {
     if (cookies) {
       const colorMode = cookies.get("color-mode") || "dark";
-      console.info("colorCookie", cookies.get("color-mode"));
       updateMode(colorMode as ColorModes);
     }
   }, [cookies]);
