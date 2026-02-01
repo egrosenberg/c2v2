@@ -11,6 +11,7 @@ import { Button, Text } from "@cerberus/react";
 import { MainContentWrapper } from "@/components/Wrappers/MainContentWrapper";
 import { Table } from "@/components/Table/Table";
 import { getSkillColumns } from "../lib/getSkillColumns";
+import { CompendiumTable } from "@/components/Table/variants/CompendiumTable/CompendiumTable";
 
 const formatSource = (skill: SkillWithRelations | undefined) => {
   if (!skill?.source) return;
@@ -122,61 +123,19 @@ export function SkillsCompendium() {
               Source - {formatSource(skill)}
             </Text>
           </Flex>
-          <Box
-            backgroundColor="page.surface.300"
-            maxH="full"
-            w="full"
-            p="xs"
-            rounded="md"
-            border="2px solid"
-            borderColor="page.border.initial"
-            boxShadow="md"
-          >
-            <Table
-              data={skills}
-              columns={getSkillColumns()}
-              busy={!(data || error)}
-              rootProps={{
-                css: {
-                  rounded: "md",
-                  maxW: "100%",
-                  maxH: "full",
-                  borderCollapse: "separate",
-                },
-                decoration: "zebra",
-              }}
-              classNames={{
-                cell: css({
-                  textStyle: "body-sm",
-                  maxH: "min-content",
-                  borderTop: "none",
-                  borderBottom: "none",
-                  p: "sm",
-                  cursor: "default",
-                }),
-                headCell: css({
-                  p: "sm",
-                  fontWeight: "bold",
-                  backgroundColor: "transparent",
-                  fontVariant: "small-caps",
-                }),
-                body: css({ backgroundColor: "transparent" }),
-                headRow: css({
-                  bgColor: "page.surface.300",
-                  outline: "1px solid",
-                }),
-              }}
-              selectProps={{
-                selected: skill,
-                setSelected: setSkill,
-                className: css({
-                  outline: "1px solid",
-                  bgColor: "page.surface.300",
-                }),
-              }}
-              scrollable
-            />
-          </Box>
+          <CompendiumTable
+            data={skills}
+            columns={getSkillColumns()}
+            busy={!(data || error)}
+            selectProps={{
+              selected: skill,
+              setSelected: setSkill,
+              className: css({
+                outline: "1px solid",
+                bgColor: "page.surface.300",
+              }),
+            }}
+          />
         </Flex>
       </Flex>
     </MainContentWrapper>
