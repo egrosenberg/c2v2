@@ -28,6 +28,8 @@ export type TableProps<T extends RowData> = {
   scrollable?: boolean;
   classNames?: TableClassNames;
   selectProps?: TableSelectProps<T>;
+  busy?: boolean;
+  busyRowCount?: number;
 };
 
 export type TableHeadProps<T extends RowData> = {
@@ -39,6 +41,8 @@ export type TableBodyProps<T extends RowData> = {
   table: TableType<T>;
   classNames?: TableClassNames;
   selectProps?: TableSelectProps<T>;
+  busy?: boolean;
+  busyRowCount: number;
 };
 
 export type TableSearchProps = {

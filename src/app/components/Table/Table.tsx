@@ -14,6 +14,8 @@ import { TableSearch } from "./components/TableSearch";
 import { flattenJson } from "@/lib/json/flattenJson";
 import { resolveJsonPath } from "@/lib/json/resolveJsonPath";
 
+const DEFAULT_BUSY_ROWS = 25;
+
 export function Table<T extends RowData>(
   props: PropsWithChildren<TableProps<T>>,
 ) {
@@ -73,6 +75,12 @@ export function Table<T extends RowData>(
         table={table}
         classNames={props?.classNames}
         selectProps={props?.selectProps}
+        busy={props?.busy}
+        busyRowCount={
+          props?.busyRowCount === undefined
+            ? DEFAULT_BUSY_ROWS
+            : props?.busyRowCount
+        }
       />
     </CTable.Root>
   );

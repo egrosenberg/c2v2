@@ -77,7 +77,6 @@ export function SkillsCompendium() {
             rounded="md"
             boxShadow="md"
           >
-            {/* <Boxre>{JSON.stringify(data, null, 2)}</pre> */}
             <Text
               aria-busy={busy}
               textStyle="heading-lg"
@@ -136,6 +135,7 @@ export function SkillsCompendium() {
             <Table
               data={skills}
               columns={getSkillColumns()}
+              busy={!(data || error)}
               rootProps={{
                 css: {
                   rounded: "md",
