@@ -25,24 +25,27 @@ export function TableHead<T extends RowData>({
     switch (currentStatus) {
       case "asc":
         nextStatus = "desc";
+        break;
       case "desc":
         nextStatus = undefined;
+        break;
       default:
         nextStatus = "asc";
     }
 
     table.setSorting((current) => {
-      const newState = [...current];
+      // const newState = [...current];
       const index = current.findIndex((s) => s.id === header.id);
       if (index === -1) {
-        newState.push({ id: header.id, desc: false });
+        return [{ id: header.id, desc: false }];
       } else {
-        newState.splice(index, 1);
         if (currentStatus === "asc") {
-          newState.push({ id: header.id, desc: true });
+          return [{ id: header.id, desc: true }];
         }
+
+        return [];
       }
-      return newState;
+      // return newState;
     });
   };
 

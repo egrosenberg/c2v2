@@ -62,10 +62,7 @@ export function Table<T extends RowData>(
     state: {
       sorting,
     },
-    onSortingChange: (...args) => {
-      setSorting([]);
-      setSorting(...args);
-    },
+    onSortingChange: setSorting,
   });
 
   const tcontent = (
