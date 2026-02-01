@@ -63,9 +63,24 @@ export function TableHead<T extends RowData>({
                       css({
                         cursor: "pointer",
                         transition: "all 0.2s",
-                        _hover: { bgColor: "page.surface.100", pr: "16px" },
+                        _hover: {
+                          bgColor: "page.surface.100",
+                          pr: "16px",
+                          pl: "0",
+                          _first: {
+                            pl: "8px",
+                          },
+                        },
                       }),
-                      sortStatus ? css({ pr: "16px" }) : undefined,
+                      sortStatus
+                        ? css({
+                            pr: "16px",
+                            pl: "0",
+                            _first: {
+                              pl: "8px",
+                            },
+                          })
+                        : undefined,
                     )
                   : undefined;
 
