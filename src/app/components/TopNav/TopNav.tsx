@@ -4,8 +4,15 @@ import { hstack } from "styled-system/patterns";
 import { Box, HStack } from "styled-system/jsx";
 import { CompendiumsMenu } from "./components/CompendiumsMenu";
 import { ColorMode } from "./components/ColorMode";
+import { signIn } from "@/auth";
+import { NavButton } from "./components/NavButton";
 
 export async function TopNav() {
+  const signInAction = async () => {
+    "use server";
+    await signIn("logto");
+  };
+
   return (
     <Box
       w="100vw"
@@ -55,7 +62,10 @@ export async function TopNav() {
           />
           <CompendiumsMenu />
         </HStack>
-        <ColorMode />
+        <HStack gap="sm">
+          <NavButton onClick={signInAction} text="login" />
+          <ColorMode />
+        </HStack>
       </nav>
     </Box>
   );

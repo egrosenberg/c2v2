@@ -5,7 +5,9 @@ import { eq } from "drizzle-orm";
 import { createUpdateSchema } from "drizzle-zod";
 import { skills } from "@db/tables/skills";
 
-const schema = createUpdateSchema(skills).required({ id: true });
+const schema = createUpdateSchema(skills)
+  .required({ id: true })
+  .omit({ _createdAt: true, _updatedAt: true });
 type Options = z.input<typeof schema>;
 
 export async function updateSkill(options: Options) {

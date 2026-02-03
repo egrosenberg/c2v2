@@ -2,6 +2,8 @@ import { formatSource } from "@/compendiums/lib/formatSource";
 import { Text } from "@cerberus/react";
 import type { SkillWithRelations } from "@db/tables/skills";
 import { Box, Flex } from "styled-system/jsx";
+import { EditSkillModal } from "./EditSkillModal/EditSkillModal";
+import { MaybeHTML } from "@/components/html/MaybeHTML/MaybeHTML";
 
 export function SkillDescription({
   skill,
@@ -23,6 +25,8 @@ export function SkillDescription({
       h="min-content"
       rounded="md"
       boxShadow="md"
+      border="2px solid"
+      borderColor="page.border.initial"
     >
       <Text
         aria-busy={busy}
@@ -50,12 +54,15 @@ export function SkillDescription({
               : `${skill?.range} ft.`)}
         </Text>
       )}
-      <Flex aria-busy={busy} textStyle="body-md" gap="xs" flexDir="column">
-        {skill?.description?.split("\n").map((str, i) => <p key={i}>{str}</p>)}
-      </Flex>
+      <MaybeHTML
+        aria-busy={busy}
+        textStyle="body-md"
+        maybeHtml={skill?.description ?? ""}
+      />
       <Text aria-busy={busy} textStyle="label-md" color="success.text.100">
         Source - {formatSource(skill)}
       </Text>
+      <EditSkillModal skill={skill} />
     </Flex>
   );
 }

@@ -57,6 +57,13 @@ export function CompendiumTable<T extends RowData>({
             fontVariant: "small-caps",
           }),
           body: css({ backgroundColor: "transparent" }),
+          row: css({
+            _hover: {
+              bgColor: "page.surface.200",
+              outline: "1px solid",
+              outlineColor: "page.border.initial",
+            },
+          }),
           headRow: css({
             bgColor: "page.surface.300",
             outline: "1px solid",
@@ -71,6 +78,7 @@ export function CompendiumTable<T extends RowData>({
                   css({
                     outline: "1px solid",
                     bgColor: "page.surface.300",
+                    fontWeight: "bold",
                   }),
               }
             : undefined

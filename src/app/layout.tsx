@@ -43,7 +43,16 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
       data-color-mode="dark"
       lang="en"
     >
-      <body className={css({ w: "100vw", h: "100vh", py: "6rem" })}>
+      <body
+        className={css({
+          w: "100vw",
+          h: "100vh",
+          py: "6rem",
+          bgGradient: "to-br",
+          gradientFrom: "page.surface.initial",
+          gradientTo: "page.surface.100",
+        })}
+      >
         <SessionProvider>
           <CerberusConfig>
             <Suspense>

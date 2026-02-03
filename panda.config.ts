@@ -25,6 +25,7 @@ export default createCerberusConfig({
     createCerberusPreset({
       sansFont: "schoolbook",
       displayFont: "uncial",
+      monoFont: "recursive",
     }),
     presetAcheronTheme,
     presetElysiumTheme,
