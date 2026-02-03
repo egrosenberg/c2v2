@@ -1,13 +1,13 @@
 "use client";
 
-import { useService } from "@/api";
+import { useQuery } from "@/api";
 import { svcGetLogtoRoles } from "@/api/logto";
 import { useSession } from "next-auth/react";
 
 export function useGetSession() {
   const { data, status } = useSession();
 
-  const { data: roles } = useService(
+  const { data: roles } = useQuery(
     svcGetLogtoRoles,
     {
       options: { email: data?.user?.email },

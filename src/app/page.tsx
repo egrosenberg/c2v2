@@ -1,7 +1,6 @@
 "use client";
 
-import { Box, Flex } from "styled-system/jsx";
-import { useService } from "@/api";
+import { useQuery } from "@/api";
 import { svcFindSkills } from "./api/skills";
 import { useEffect, useState } from "react";
 import type { SkillWithRelations } from "@db/tables/skills";
@@ -9,7 +8,7 @@ import { Text } from "@cerberus/react";
 import { MainContentWrapper } from "./components/Wrappers/MainContentWrapper";
 
 export default function Page() {
-  const { data } = useService(svcFindSkills);
+  const { data } = useQuery(svcFindSkills);
   // const skill = data?.records[0];
   const skills = data?.records ?? [];
 

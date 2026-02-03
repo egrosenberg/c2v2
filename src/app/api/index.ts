@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { runQuery } from "./run-query";
+import { addListener, triggerListeners } from "./listeners";
 
 export type RequestType = "GET" | "POST";
 
@@ -24,6 +25,8 @@ export type UseServiceOptions<O> =
   | {
       options?: O;
       lazyLoad?: boolean;
+      subscribeListeners?: boolean;
+      triggerListeners?: boolean;
     }
   | undefined;
 
@@ -63,6 +66,8 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
 
   const meta = metaFn();
 
+  let listenerId: number | undefined = undefined;
+
   const serviceFunction = async (options: O | undefined) => {
     setProcessing(true);
 
@@ -77,6 +82,9 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
       setError(error);
     } else {
       setData(data as ServiceResult<S>);
+      if (hookOptions.triggerListeners) {
+        triggerListeners(meta.route, listenerId);
+      }
     }
     setReady(true);
     setProcessing(false);
@@ -102,6 +110,13 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
   const service = (options: O | undefined) =>
     (runner = runner.finally(() => serviceFunction(options)));
 
+  const refetch = () =>
+    (runner = runner.finally(() => serviceFunction(serviceOptions)));
+
+  if (hookOptions.subscribeListeners) {
+    listenerId = addListener({ route: meta.route, refetch });
+  }
+
   return {
     data,
     ready,
@@ -109,4 +124,37 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
     error,
     service,
   };
+}
+
+export function useMutation<S extends ServiceFn, O = ServiceArguments<S>>(
+  metaFn: ServiceMetaFn<S, O>,
+  hookOptions: UseServiceOptions<O> = {},
+  dependencies: unknown[] = [],
+) {
+  return useService(
+    metaFn,
+    {
+      ...hookOptions,
+      lazyLoad: true,
+      subscribeListeners: false,
+      triggerListeners: true,
+    },
+    dependencies,
+  );
+}
+
+export function useQuery<S extends ServiceFn, O = ServiceArguments<S>>(
+  metaFn: ServiceMetaFn<S, O>,
+  hookOptions: UseServiceOptions<O> = {},
+  dependencies: unknown[] = [],
+) {
+  return useService(
+    metaFn,
+    {
+      ...hookOptions,
+      subscribeListeners: true,
+      triggerListeners: false,
+    },
+    dependencies,
+  );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Flex } from "styled-system/jsx";
-import { useService } from "@/api";
+import { useQuery } from "@/api";
 import { svcFindSkills, svcGetSkill } from "@/api/skills";
 import { css } from "styled-system/css";
 import { useEffect, useState } from "react";
@@ -11,23 +11,23 @@ import { MainContentWrapper } from "@/components/Wrappers/MainContentWrapper";
 import { getSkillColumns } from "../lib/getSkillColumns";
 import { CompendiumTable } from "@/components/Table/variants/CompendiumTable/CompendiumTable";
 import { SkillDescription } from "./SkillDescription";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { routeDefs } from "@/lib/routeDefs";
 import { getSkillPageTitle } from "../lib/metaFunctions";
 
 export function SkillsCompendium() {
-  const { data, error } = useService(svcFindSkills);
+  const { data, error } = useQuery(svcFindSkills);
   const { skillId } = useParams();
   const skills = data?.records ?? [];
 
   const [skill, setSkill] = useState<SkillWithRelations | undefined>(undefined);
 
-  const { data: activeSkill, processing: activeSkillBusy } = useService(
+  const { data: activeSkill, processing: activeSkillBusy } = useQuery(
     svcGetSkill,
     {
       options: { id: skill?.id || skillId },
     },
-    [skillId, skill || 0],
+    [skillId || 0, skill || 0, skillId || skill],
   );
 
   useEffect(() => {
