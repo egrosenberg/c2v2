@@ -150,6 +150,10 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                       }
                       onChange={field.onChange}
                       defaultValue={String(field.value)}
+                      css={{
+                        w: "full",
+                        "& [data-part=control]": { w: "full" },
+                      }}
                     />
                   </Field>
                 )}
@@ -165,6 +169,10 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                         setValue("focus", val.valueAsNumber)
                       }
                       defaultValue={String(field.value ?? 0)}
+                      css={{
+                        w: "full",
+                        "& [data-part=control]": { w: "full" },
+                      }}
                     />
                   </Field>
                 )}
