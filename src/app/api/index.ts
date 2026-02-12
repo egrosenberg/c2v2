@@ -37,7 +37,7 @@ export type UseServiceReturnType<S extends ServiceFn> = {
   error: string | undefined;
 };
 
-export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
+function useService<S extends ServiceFn, O = ServiceArguments<S>>(
   metaFn: ServiceMetaFn<S, O>,
   hookOptions: UseServiceOptions<O> = {},
   dependencies: unknown[] = [],
@@ -66,7 +66,7 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
 
   const meta = metaFn();
 
-  let listenerId: number | undefined = undefined;
+  const [listenerId, setListenerId] = useState<number | undefined>(undefined);
 
   const serviceFunction = async (options: O | undefined) => {
     setProcessing(true);
@@ -113,8 +113,8 @@ export function useService<S extends ServiceFn, O = ServiceArguments<S>>(
   const refetch = () =>
     (runner = runner.finally(() => serviceFunction(serviceOptions)));
 
-  if (hookOptions.subscribeListeners) {
-    listenerId = addListener({ route: meta.route, refetch });
+  if (hookOptions.subscribeListeners && listenerId === undefined) {
+    setListenerId(addListener({ route: meta.route, refetch }));
   }
 
   return {

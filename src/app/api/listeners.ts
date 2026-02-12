@@ -10,19 +10,19 @@ export type Listener = {
 
 const listeners = globalThis as unknown as { listeners?: Listener[] };
 
-const getListners = () => {
+const getListeners = () => {
   if (!listeners.listeners) listeners.listeners = [];
   return listeners.listeners;
 };
 
-export function addListener(listner: Omit<Listener, "id">) {
+export function addListener(listener: Omit<Listener, "id">) {
   const id = idx++;
-  getListners().push({ ...listner, id });
+  getListeners().push({ ...listener, id });
   return id;
 }
 
 export async function triggerListeners(route: string, ignoreId?: number) {
-  const toTrigger = getListners().filter(
+  const toTrigger = getListeners().filter(
     (l) => l.id !== ignoreId && l.route.includes(route),
   );
 
