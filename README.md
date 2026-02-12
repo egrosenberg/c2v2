@@ -25,6 +25,9 @@ Install modules
 
 ```bash
 npm i
+
+# Set up panda jsx etc.
+npm run codegen
 ```
 
 Maintaining DB
