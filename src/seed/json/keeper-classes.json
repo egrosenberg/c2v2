@@ -12,7 +12,13 @@
       "Offer to teach someone about something you have no expertise in. If they take the offer, they get a Luck Point."
     ],
     "description": "Wardens are fearsome warlords and unshakeable vanguards. The sword that cuts down all foes; the shield unyielding in danger.",
-    "tenets": ["Courageous", "Fearless", "Ferocious"]
+    "tenets": ["Courageous", "Fearless", "Ferocious"],
+    "vitals": {
+      "hp": "2d10+20",
+      "gd": "2d10+12",
+      "wd": "2d10"
+    },
+    "virtue": "vig"
   },
   {
     "id": "ea16be41-63e7-4f07-8719-37339247197d",
@@ -27,7 +33,13 @@
       "Exclaim: \u201CDo I have the deal for you!\u201D If they hear you out, they get a Luck Point.\"\r\n"
     ],
     "description": "Skylarks are enduring wayfarers and elegant slayers. The dagger that strikes unseen; the arrow that guides armies.",
-    "tenets": ["Graceful", "Cunning", "Lethal"]
+    "tenets": ["Graceful", "Cunning", "Lethal"],
+    "vitals": {
+      "hp": "2d8+16",
+      "gd": "2d8+4",
+      "wd": "2d8+4"
+    },
+    "virtue": "cla"
   },
   {
     "id": "e42199cc-591d-489b-8cb3-f45f25610c05",
@@ -42,6 +54,12 @@
       "Ask: \u201CCould you explain?\u201D If they do, they get a Luck Point.\""
     ],
     "description": "Magi are adept casters and revered scholars. Soothing waves to burnished skin; searing flames to foes worn thin.",
-    "tenets": ["Bold", "Calculated", "Enchanting"]
+    "tenets": ["Bold", "Calculated", "Enchanting"],
+    "vitals": {
+      "hp": "2d6+12",
+      "gd": "2d6",
+      "wd": "2d6+18"
+    },
+    "virtue": "spi"
   }
 ]

@@ -36,6 +36,13 @@
       "when": 1772774161088,
       "tag": "0004_white_bishop",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1772775552604,
+      "tag": "0005_smart_stepford_cuckoos",
+      "breakpoints": true
     }
   ]
 }

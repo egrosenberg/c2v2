@@ -1,7 +1,15 @@
-import { bigserial, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import {
+  bigserial,
+  jsonb,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import type z from "zod";
 import type { SuclassWithRelations } from "./subclasses";
+import { VIRTUES, type VITALS } from "@db/constants";
 
 const TABLE_NAME = "keeper_classes" as const;
 
@@ -20,6 +28,10 @@ export const keeperClasses = pgTable(TABLE_NAME, {
   canAlways: text("can_always").array(),
   description: text("description"),
   tenets: text("tenets").array(),
+  vitals: jsonb("vitals")
+    .$type<Record<(typeof VITALS)[number], string>>()
+    .default({ hp: "", gd: "", wd: "" }),
+  virtue: text("virtue", { enum: VIRTUES }),
 });
 
 export const keeperClassesInsertSchema = createInsertSchema(keeperClasses);

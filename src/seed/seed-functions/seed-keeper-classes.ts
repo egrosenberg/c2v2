@@ -18,6 +18,8 @@ export default async function seedKeeperClasses() {
         canAlways: keeperClass.canAlways ?? undefined,
         description: keeperClass.description ?? undefined,
         tenets: keeperClass.tenets ?? undefined,
+        vitals: keeperClass.vitals ?? undefined,
+        virtue: keeperClass.virtue ?? undefined,
       });
       continue;
     }
