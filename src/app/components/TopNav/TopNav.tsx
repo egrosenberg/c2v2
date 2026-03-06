@@ -25,6 +25,7 @@ export async function TopNav() {
       display="flex"
       flexDir="column"
       alignItems="center"
+      zIndex="banner"
     >
       <nav
         data-placement="top"
