@@ -29,6 +29,13 @@
       "when": 1769383650618,
       "tag": "0003_graceful_mimic",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1772774161088,
+      "tag": "0004_white_bishop",
+      "breakpoints": true
     }
   ]
 }

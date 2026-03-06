@@ -18,6 +18,8 @@ export const keeperClasses = pgTable(TABLE_NAME, {
   // data
   name: text("name").notNull().unique(),
   canAlways: text("can_always").array(),
+  description: text("description"),
+  tenets: text("tenets").array(),
 });
 
 export const keeperClassesInsertSchema = createInsertSchema(keeperClasses);
