@@ -16,6 +16,8 @@ export default async function seedKeeperClasses() {
       await updateKeeperClass({
         id: records[0]?.id,
         canAlways: keeperClass.canAlways ?? undefined,
+        description: keeperClass.description ?? undefined,
+        tenets: keeperClass.tenets ?? undefined,
       });
       continue;
     }
