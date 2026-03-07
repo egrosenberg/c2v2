@@ -13,6 +13,11 @@ import { VIRTUES, type VITALS } from "@db/constants";
 
 const TABLE_NAME = "keeper_classes" as const;
 
+export type RollTableType = {
+  heading: string;
+  values: string[];
+}[];
+
 export const keeperClasses = pgTable(TABLE_NAME, {
   // identifiers
   id: uuid("id").primaryKey().defaultRandom(),
@@ -32,6 +37,9 @@ export const keeperClasses = pgTable(TABLE_NAME, {
     .$type<Record<(typeof VITALS)[number], string>>()
     .default({ hp: "", gd: "", wd: "" }),
   virtue: text("virtue", { enum: VIRTUES }),
+  startingWeapons: jsonb("starting_weapons").$type<RollTableType>(),
+  startingArmor: jsonb("starting_armor").$type<RollTableType>(),
+  startingBelongings: jsonb("starting_belongings").$type<RollTableType>(),
 });
 
 export const keeperClassesInsertSchema = createInsertSchema(keeperClasses);

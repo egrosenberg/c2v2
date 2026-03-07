@@ -18,13 +18,52 @@
       "gd": "2d10+12",
       "wd": "2d10"
     },
-    "virtue": "vig"
+    "virtue": "vig",
+    "startingWeapons": [
+      {
+        "heading": "Weapons (2)",
+        "values": [
+          "Oathsworn Blade: d10, Hefty\n& Battle-Hardened Shield: 10^^gd^^, 4^^wd^^",
+          "Champion’s Greataxe: d12, Two-handed, can strike an adjacent target once each turn",
+          "Iron-borne Hatchets (2): d6, Light (d4), Thrown (30 ft).",
+          "Cavalier’s War-Pike: d10, Two-handed, Reach",
+          "Banner-Spear: d10, Versatile (d8), Hefty, deals full damage while using Tower-Shield\n& Tower Shield: 14gd, 6wd, Slow",
+          "Stygian Greathammer: 2d6, two-handed. If you break a target’s gd, knock them **Prone**.",
+          "Beast Claws: 2d4, one per hand, causes Unguarded targets to **Bleed**.",
+          "Gilded Blade: d10, Versatile (d8), priceless but you cannot part from it\n& Parrying Dagger: d6, Light (d4), +5gd while offhanding"
+        ]
+      }
+    ],
+    "startingArmor": [
+      {
+        "heading": "Armor (1)",
+        "values": [
+          "Battle-wrought plate, passed down generations. (mail, grieves, helm, A3)",
+          "War-priest’s vestments. Vibrant robes bolstered by chain (mail, A1)",
+          "Dawnweave accompaniments (boots and gloves) (grieves, gloves, A2)",
+          "The husk of long decommissioned golem (mail, helm, A2)"
+        ]
+      }
+    ],
+    "startingBelongings": [
+      {
+        "heading": "Belongings (2)",
+        "values": [
+          "Divine crest. Glows brightly in the presence of fiends.",
+          "Crimson locket. Smells faintly of roses.",
+          "A hooded lantern that needs no fuel. Its flame smells of roasted marshmallows.",
+          "A small vessel of ceremonial war ink.",
+          "Hexsteel stake. Once plunged into a surface can only be removed by you.",
+          "Animal pelt cape. Keeps you warm through frigid winters."
+        ]
+      }
+    ]
   },
   {
     "id": "ea16be41-63e7-4f07-8719-37339247197d",
     "name": "Skylark",
     "canAlways": [
-      "\"Have something you\u2019re not supposed to.",
+      "Have something you\u2019re not supposed to.",
       "Find a way out from between a rock and a hard place.",
       "Spill the beans.",
       "Tell which way is north.",
@@ -39,13 +78,52 @@
       "gd": "2d8+4",
       "wd": "2d8+4"
     },
-    "virtue": "cla"
+    "virtue": "cla",
+    "startingWeapons": [
+      {
+        "heading": "Weapons (2)",
+        "values": [
+          "Crescent Blade: d10, Hefty, +1d8 under the light of the moon, cannot use with a shield.",
+          "Hunting Bow: d10, Two-handed, Ranged (120 ft.)",
+          "Twin Fang Daggers (2): d6, Light (d4), Thrown 30 ft.",
+          "Shroudtouched Crossbow: d12 Two-handed, Heavy, Ranged (100 ft.), Slow",
+          "Duelist’s Rapier: d8, Hefty, +6gd & +6wd if wielding no other weapons.",
+          "Sharpeye’s Handcannon: d6, Light (d4), Ranged (30ft.) can be used in melee.",
+          "Betreyal’s Sting: d6, Light (d4), +2d8 to targets who trust you.",
+          "Silver Sword: 2d6, Two-handed, priceless but you cannot part from it"
+        ]
+      }
+    ],
+    "startingArmor": [
+      {
+        "heading": "Armor (1)",
+        "values": [
+          "Clandestine leather. (mail, grieves, A2)",
+          "Rover’s camoflage, worn from years of use. (mail, gloves, A2)",
+          "Ō-yoroi, bestowed by your master.  (helm, mail, A2)",
+          "Moon-blessed vestments (mail, A1)"
+        ]
+      }
+    ],
+    "startingBelongings": [
+      {
+        "heading": "Belongings (2)",
+        "values": [
+          "Feline grace talisman. While wearing, you take no fall damage.",
+          "Satchel of wolfsbane. Has 3 doses, but you know how to get more.",
+          "A pair of loaded dice.",
+          "A weathered scroll, containing forbidden secrets. Indecipherable.",
+          "Mystery key. 5% chance to unlock any given door, promptly breaks after opening it.",
+          "A whistle that only one species of animal can hear (you choose)."
+        ]
+      }
+    ]
   },
   {
     "id": "e42199cc-591d-489b-8cb3-f45f25610c05",
     "name": "Magus",
     "canAlways": [
-      "\"Perform a minor miracle.",
+      "Perform a minor miracle.",
       "Jot down something important.",
       "Put your faith in those around you.",
       "Do something out of the ordinairy.",
@@ -60,6 +138,45 @@
       "gd": "2d6",
       "wd": "2d6+18"
     },
-    "virtue": "spi"
+    "virtue": "spi",
+    "startingWeapons": [
+      {
+        "heading": "Weapons (2)",
+        "values": [
+          "Pair of Dueling Wands: d6, Light (d4), Elemental, Ranged (90 ft.)",
+          "Treewarden Staff: d10, Two-handed, Elemental, can be used as Ranged (60 ft.).",
+          "Sun/Moon-Touched Mace: d8, Hefty\n& Divine Shield: 8gd, 6wd",
+          "Lightkeeper’s Rod: d6, Light (d4), Elemental, Ranged (90ft.), +d6 against those who walk in death.",
+          "Dragon-blessed Seal: +1 Fire/Water damage and +6wd while in offhand.",
+          "Spellspear: d6, Hefty, +d6 when used the same turn as a magic skill",
+          "Serpent Scepter: d10, Versatile (d8), Hefty, +d6 to creatures with scales.",
+          "Sword of Night/Day: d10, Versatile (d8), Hefty, +d6 Water/Fire to Wet/Burning targets"
+        ]
+      }
+    ],
+    "startingArmor": [
+      {
+        "heading": "Armor (1)",
+        "values": [
+          "Scholar’s duds, from your academy days. (mail, A1)",
+          "Holy robes, sacred to your cloister. (mail, A1)",
+          "Dragon-scale vestures, origins known only to you. (mail, gloves, A2)",
+          "Apprentice robes, as recommended by your master. (mail, A1)"
+        ]
+      }
+    ],
+    "startingBelongings": [
+      {
+        "heading": "Belongings (2)",
+        "values": [
+          "Relic of Sol/Luna. Speaking its command word causes it to glow brightly.",
+          "Fundementalist spellbook. You can replace one magic skill by studying for 8 hours.",
+          "A message your master requested you deliver, a reward bestowed on delivery.",
+          "Astral atlas. Referring to it allows you to easily navigate through the night.",
+          "A rare book on a niche subject that is special to you.",
+          "A necklace, given to you by your master in their dying breath. Describe its appearance."
+        ]
+      }
+    ]
   }
 ]

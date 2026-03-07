@@ -20,6 +20,9 @@ export default async function seedKeeperClasses() {
         tenets: keeperClass.tenets ?? undefined,
         vitals: keeperClass.vitals ?? undefined,
         virtue: keeperClass.virtue ?? undefined,
+        startingWeapons: keeperClass.startingWeapons ?? undefined,
+        startingArmor: keeperClass.startingArmor ?? undefined,
+        startingBelongings: keeperClass.startingBelongings ?? undefined,
       });
       continue;
     }
