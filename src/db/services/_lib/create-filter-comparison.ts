@@ -16,8 +16,10 @@ export function createFilterComparison(options: Options) {
 
   switch (parsed.operator) {
     case "eq":
-      if (Array.isArray(parsed.value) && parsed.value.length)
-        return inArray(parsed.column, parsed.value);
+      if (Array.isArray(parsed.value)) {
+        if (parsed.value.length) return inArray(parsed.column, parsed.value);
+        else return undefined;
+      }
       return eq(parsed.column, parsed.value);
     case "ilike":
       return ilike(parsed.column, String(parsed.value));

@@ -53,9 +53,11 @@ export const skillsFieldsMap: Record<SkillsField, FilterColumn> = {
   tags: { column: skills.tags },
 };
 
-export const skillsFilterSchema = z.partialRecord(
-  z.custom<SkillsField>(),
-  z.unknown(),
-);
+export const skillsFilterSchema = z
+  .object({
+    sourceType: z.string(),
+  })
+  .partial()
+  .and(z.partialRecord(z.custom<SkillsField>(), z.unknown()));
 
-export type skillsFilter = z.input<typeof skillsFilterSchema>;
+export type SkillsFilter = z.input<typeof skillsFilterSchema>;

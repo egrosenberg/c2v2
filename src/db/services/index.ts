@@ -14,7 +14,7 @@ export type FilterOperator = "eq" | "ilike" | "array_contains" | "substr";
 
 export type FilterColumn = { column: PgColumn; operator?: FilterOperator };
 
-const sources = ["class", "aspect", "subclass", "domain"] as const;
+export const sources = ["class", "aspect", "subclass", "domain"] as const;
 export type SourceType = (typeof sources)[number];
 export type Source = Aspect | Domain | KeeperClass | Subclass | null;
 
