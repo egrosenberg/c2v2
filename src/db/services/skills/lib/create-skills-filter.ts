@@ -3,11 +3,11 @@ import {
   skillsFields,
   skillsFieldsMap,
   skillsFilterSchema,
-  type skillsFilter,
+  type SkillsFilter,
 } from "../types";
 import { createFilterComparison } from "@db/services/_lib/create-filter-comparison";
 
-export function createSkillsFilter(options: skillsFilter) {
+export function createSkillsFilter(options: SkillsFilter) {
   const parsed = skillsFilterSchema.parse(options);
 
   const filterParts = [];

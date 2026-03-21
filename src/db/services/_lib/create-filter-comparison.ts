@@ -1,7 +1,7 @@
 import { PgColumn } from "drizzle-orm/pg-core";
 import z from "zod";
 import type { FilterOperator } from "../index";
-import { eq, ilike, sql } from "drizzle-orm";
+import { eq, ilike, inArray, sql } from "drizzle-orm";
 
 const schema = z.object({
   column: z.custom<PgColumn>(),
@@ -16,6 +16,8 @@ export function createFilterComparison(options: Options) {
 
   switch (parsed.operator) {
     case "eq":
+      if (Array.isArray(parsed.value) && parsed.value.length)
+        return inArray(parsed.column, parsed.value);
       return eq(parsed.column, parsed.value);
     case "ilike":
       return ilike(parsed.column, String(parsed.value));
