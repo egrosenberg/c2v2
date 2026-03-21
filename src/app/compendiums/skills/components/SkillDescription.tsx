@@ -14,12 +14,15 @@ export function SkillDescription({
 }) {
   if (!skill && !busy) return;
 
+  const focus = skill?.focus && skill.focus > 0 ? skill.focus : undefined;
+
   return (
     <Flex
       flexDir="column"
       gap="sm"
       alignItems="stretch"
-      w="40rem"
+      pos="relative"
+      w={{ base: "full", md: "40rem" }}
       bgColor="page.surface.200"
       p="md"
       h="min-content"
@@ -27,6 +30,7 @@ export function SkillDescription({
       boxShadow="md"
       border="2px solid"
       borderColor="page.border.initial"
+      className="group"
     >
       <Text
         aria-busy={busy}
@@ -43,7 +47,7 @@ export function SkillDescription({
       </Text>
       <Text aria-busy={busy} textStyle="label-md">
         <strong>Cost: </strong>
-        {skill?.actions} Actions{skill?.focus && `, ${skill.focus} Focus`}
+        {skill?.actions} Actions{focus && `, ${focus} Focus`}
       </Text>
       {skill?.range !== null && (
         <Text aria-busy={busy} textStyle="label-md">

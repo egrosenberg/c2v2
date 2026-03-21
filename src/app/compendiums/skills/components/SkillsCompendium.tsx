@@ -42,50 +42,48 @@ export function SkillsCompendium() {
   }, [skill]);
 
   return (
-    <MainContentWrapper>
-      <Flex w="full" h="full" alignItems="center" flexDir="column" gap="md">
-        <Box w="full">
-          <Text as="h1" textStyle="heading-xl" fontFamily="uncial">
-            Skills
-          </Text>
-          <Box
-            h="1rem"
-            w="full"
-            borderTop="1px solid"
-            borderTopColor="page.border.100"
-            gradientFrom="page.surface.200"
-            gradientTo="transparent"
-            bgGradient="to-b"
-          />
-        </Box>
-        <Flex
-          flexDir="row"
-          justifyContent="space-between"
-          flex="1"
-          maxH="full"
+    <Flex w="full" h="full" alignItems="center" flexDir="column" gap="md">
+      <Box w="full">
+        <Text as="h1" textStyle="heading-xl" fontFamily="uncial">
+          Skills
+        </Text>
+        <Box
+          h="1rem"
           w="full"
-          maxWidth="77rem"
-          gap="lg"
-        >
-          <SkillDescription
-            skill={activeSkill || undefined}
-            busy={!activeSkill && !!skillId && activeSkillBusy}
-          />
-          <CompendiumTable
-            data={skills}
-            columns={getSkillColumns()}
-            busy={!(skills || error)}
-            selectProps={{
-              selected: activeSkill ?? skill,
-              setSelected: setSkill,
-              className: css({
-                outline: "1px solid",
-                bgColor: "page.surface.300",
-              }),
-            }}
-          />
-        </Flex>
+          borderTop="1px solid"
+          borderTopColor="page.border.100"
+          gradientFrom="page.surface.200"
+          gradientTo="transparent"
+          bgGradient="to-b"
+        />
+      </Box>
+      <Flex
+        flexDir={{ base: "column", md: "row" }}
+        justifyContent="space-between"
+        flex="1"
+        maxH={{ base: "", md: "calc(100% - var(--cerberus-spacing-md) * 2)" }}
+        w="full"
+        maxWidth="77rem"
+        gap="lg"
+      >
+        <SkillDescription
+          skill={activeSkill || undefined}
+          busy={!activeSkill && !!skillId && activeSkillBusy}
+        />
+        <CompendiumTable
+          data={skills}
+          columns={getSkillColumns()}
+          busy={!(skills || error)}
+          selectProps={{
+            selected: activeSkill ?? skill,
+            setSelected: setSkill,
+            className: css({
+              outline: "1px solid",
+              bgColor: "page.surface.300",
+            }),
+          }}
+        />
       </Flex>
-    </MainContentWrapper>
+    </Flex>
   );
 }

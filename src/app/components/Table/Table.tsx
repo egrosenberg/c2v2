@@ -83,7 +83,9 @@ export function Table<T extends RowData>(
   );
 
   const tNode = props.scrollable ? (
-    <Scrollable maxH="full">{tcontent}</Scrollable>
+    <Scrollable maxH="full" scrollbarWidth="thin">
+      {tcontent}
+    </Scrollable>
   ) : (
     tcontent
   );

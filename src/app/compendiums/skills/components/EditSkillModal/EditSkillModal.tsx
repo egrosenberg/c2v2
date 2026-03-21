@@ -1,5 +1,5 @@
 import { useMutation } from "@/api";
-import { svcUpdateSkill } from "@/api/skills";
+import { svcUpdateSkill, type UpdateSkillOptions } from "@/api/skills";
 import { TiptapEditor } from "@/components/TiptapEditor/TiptapEditor";
 import { safeSpread } from "@/lib/json/safeSpread";
 import { Edit, Notebook } from "@carbon/icons-react";
@@ -9,6 +9,7 @@ import {
   DialogProvider,
   DialogTrigger,
   Field,
+  IconButton,
   Input,
   NumberInput,
   Text,
@@ -35,14 +36,18 @@ export function EditSkillModal({ skill }: EditSkillProps) {
 
   const onSubmit: SubmitHandler<Partial<Skill>> = (data) => {
     if (!skill) return;
-    const finalData = { ...skill, ...safeSpread(skill), description };
+    const finalData: UpdateSkillOptions = {
+      id: skill.id,
+      ...safeSpread(data),
+      description,
+    };
 
     try {
-      updateSkill(finalData);
       setOpen(false);
+      updateSkill(finalData);
       toaster.success({
         title: "Success",
-        description: "Sueccessfully updated skill.",
+        description: "Successfully updated skill.",
       });
     } catch (e) {
       if (Error.isError(e)) {
@@ -50,7 +55,7 @@ export function EditSkillModal({ skill }: EditSkillProps) {
       }
       toaster.error({
         title: "Error",
-        description: "An unknown error has occured",
+        description: "An unknown error has occurred",
       });
     }
   };
@@ -75,20 +80,29 @@ export function EditSkillModal({ skill }: EditSkillProps) {
           .join("");
       }
       setInitialHtml(htmlDescription);
+      setDescription(htmlDescription);
     }
   }, [skill, open]);
-
-  console.log({ description });
 
   return (
     <DialogProvider
       open={open}
       onOpenChange={(details) => setOpen(details.open)}
     >
-      <DialogTrigger asChild>
-        <Button aria-label="edit skill">
+      <DialogTrigger
+        asChild
+        display={{ base: "flex", md: "none" }}
+        _groupHover={{ display: "flex" }}
+      >
+        <IconButton
+          ariaLabel="edit skill"
+          size="sm"
+          pos="absolute"
+          top="sm"
+          right="sm"
+        >
           <Edit />
-        </Button>
+        </IconButton>
       </DialogTrigger>
       <Dialog>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -103,7 +117,12 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                 defaultValue={""}
                 render={({ field: { ref, ...field } }) => (
                   <Field label="Name">
-                    <Input type="text" {...field} />
+                    <Input
+                      type="text"
+                      {...field}
+                      textStyle="heading-lg"
+                      fontVariant="small-caps"
+                    />
                   </Field>
                 )}
               />
@@ -114,7 +133,7 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                   defaultValue={""}
                   render={({ field: { ref, ...field } }) => (
                     <Field label="Type">
-                      <Input type="text" {...field} />
+                      <Input type="text" {...field} textStyle="heading-sm" />
                     </Field>
                   )}
                 />
@@ -128,16 +147,12 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                         type="text"
                         onChange={field.onChange}
                         value={field.value ?? ""}
+                        textStyle="heading-sm"
                       />
                     </Field>
                   )}
                 />
               </HStack>
-              <TiptapEditor
-                setHtml={setDescription}
-                initialHtml={initialHtml}
-                label="Description"
-              />
               <Controller
                 name="actions"
                 control={control}
@@ -150,6 +165,7 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                       }
                       onChange={field.onChange}
                       defaultValue={String(field.value)}
+                      value={String(field.value)}
                       css={{
                         w: "full",
                         "& [data-part=control]": { w: "full" },
@@ -169,6 +185,7 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                         setValue("focus", val.valueAsNumber)
                       }
                       defaultValue={String(field.value ?? 0)}
+                      value={String(field.value)}
                       css={{
                         w: "full",
                         "& [data-part=control]": { w: "full" },
@@ -191,7 +208,14 @@ export function EditSkillModal({ skill }: EditSkillProps) {
                   </Field>
                 )}
               />
-              <Button shape="rounded">SUBMIT</Button>
+              <TiptapEditor
+                setHtml={setDescription}
+                initialHtml={initialHtml}
+                label="Description"
+              />
+              <Button shape="rounded" mt="lg">
+                SUBMIT
+              </Button>
             </Flex>
           </Scrollable>
         </form>

@@ -5,12 +5,13 @@ import CerberusConfig from "../context/cerberus-config";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import type { LayoutRoutes } from ".next/dev/types/routes";
-import { cerberus, ThemeProvider } from "@cerberus/react";
+import { cerberus, NotificationCenter, ThemeProvider } from "@cerberus/react";
 import { CenturySchoolbook, UncialAntiqua } from "./fonts";
 import { TopNav } from "./components/TopNav/TopNav";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CookiesProvider } from "next-client-cookies/server";
+import { MainContentWrapper } from "./components/Wrappers/MainContentWrapper";
 
 const poppins = Poppins({
   display: "swap",
@@ -39,7 +40,7 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
         UncialAntiqua.variable,
         CenturySchoolbook.variable,
       )}
-      data-panda-theme="elysium"
+      data-panda-theme="acheron"
       data-color-mode="dark"
       lang="en"
     >
@@ -47,7 +48,8 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
         className={css({
           w: "100vw",
           h: "100vh",
-          py: "6rem",
+          pt: "6rem",
+          pb: "xl",
           bgGradient: "to-br",
           gradientFrom: "page.surface.initial",
           gradientTo: "page.surface.100",
@@ -57,13 +59,20 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
           <CerberusConfig>
             <Suspense>
               <CookiesProvider>
-                <ThemeProvider defaultTheme="elysium" defaultColorMode={"dark"}>
+                <ThemeProvider defaultTheme="acheron" defaultColorMode={"dark"}>
                   <TopNav />
                   <cerberus.main
                     role="main"
-                    css={{ h: "full", w: "full", px: "lg" }}
+                    css={{
+                      h: "full",
+                      w: "full",
+                      px: "lg",
+                      maxW: "full",
+                      maxH: "full",
+                    }}
                   >
-                    {props.children}
+                    <MainContentWrapper>{props.children}</MainContentWrapper>
+                    <NotificationCenter />
                   </cerberus.main>
                 </ThemeProvider>
               </CookiesProvider>

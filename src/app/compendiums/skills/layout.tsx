@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
-  return <>{props.children}</>;
+  return props.children;
 }

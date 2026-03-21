@@ -1,5 +1,5 @@
 import { getSkill } from "@db/services/skills/get-skill";
-import type { ServiceMetaFn } from "..";
+import type { ServiceArguments, ServiceMetaFn } from "..";
 import { findSkills } from "@db/services/skills/find-skills";
 import type { updateSkill } from "@db/services/skills/update-skill";
 
@@ -17,6 +17,7 @@ export const svcFindSkills: ServiceMetaFn<typeof findSkills> = () => ({
   name: "find-skills",
 });
 
+export type UpdateSkillOptions = ServiceArguments<typeof updateSkill>;
 export const svcUpdateSkill: ServiceMetaFn<typeof updateSkill> = () => ({
   method: "POST",
   route,
