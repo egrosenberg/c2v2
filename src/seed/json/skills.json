@@ -577,7 +577,7 @@
   {
     "id": "5e5dbb44-ea9d-42dd-abe0-d38aeb75fa6a",
     "name": "Humongify",
-    "type": "Maigc",
+    "type": "Magic",
     "subtype": "Polymorph",
     "actions": 1,
     "range": "self",
