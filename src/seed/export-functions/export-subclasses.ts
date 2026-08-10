@@ -1,6 +1,6 @@
 import { findSubclasses } from "@db/services/subclasses/find-subclasses";
 import { writeFile } from "fs";
-const NAME = "skills";
+const NAME = "subclasses";
 
 export default async function exportSubclassess() {
   const { records } = await findSubclasses();
