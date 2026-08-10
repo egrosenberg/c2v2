@@ -46,4 +46,10 @@ npm run db:truncate
 npm run db:seed
 ```
 
+Running app
+
+```bash
+npm run dev
+```
+
 This software is provided "as is" and free of charge. See `LICENSE.txt` for more information.

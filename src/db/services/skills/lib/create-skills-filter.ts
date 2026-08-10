@@ -6,6 +6,7 @@ import {
   type SkillsFilter,
 } from "../types";
 import { createFilterComparison } from "@db/services/_lib/create-filter-comparison";
+import { skills } from "@db/tables/skills";
 
 export function createSkillsFilter(options: SkillsFilter) {
   const parsed = skillsFilterSchema.parse(options);

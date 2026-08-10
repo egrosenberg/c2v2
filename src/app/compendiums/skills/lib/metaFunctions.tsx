@@ -3,7 +3,7 @@ import type { Skill, SkillWithRelations } from "@db/tables/skills";
 
 export function getSkillPageTitle(skill?: Skill | SkillWithRelations) {
   if (!skill) return "Celestus | Skills";
-  return `${skill.name} | Celestus`;
+  return `Skill: ${skill.name} | Celestus`;
 }
 
 export function getSkillPageMeta(skill?: Skill | SkillWithRelations) {

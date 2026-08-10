@@ -16,6 +16,8 @@ export type FindSkillsAggregates = {
   actions: number[];
   focus: number[];
   sources: { name: string; id: string }[];
+  types: string[];
+  subtypes: string[];
 };
 
 type Options = z.input<typeof schema>;
@@ -30,16 +32,13 @@ export async function findSkillsAggregates(
 
     const filter = createSkillsFilter(parsed.filter);
 
-    const records: SkillWithRelations[] = [];
-
-    // Aggregations
     const actionValues = await db
       .selectDistinct({ actions: skills.actions })
       .from(skills)
       .where(and(isNotNull(skills.actions), filter))
       .orderBy(asc(skills.actions));
 
-    let focusValues = await db
+    const focusValues = await db
       .selectDistinct({ focus: skills.focus })
       .from(skills)
       .where(and(isNotNull(skills.focus), filter))
@@ -74,11 +73,32 @@ export async function findSkillsAggregates(
       }
     }
 
+    const skillTypes = await db
+      .selectDistinct({ type: skills.type })
+      .from(skills)
+      .where(filter)
+      .orderBy(asc(skills.type));
+
+    const skillSubtypesRecords = await db
+      .selectDistinct({ subtype: skills.subtype })
+      .from(skills)
+      .where(and(filter, isNotNull(skills.subtype)));
+
+    const subtypesSet = new Set<string>();
+    for (const { subtype } of skillSubtypesRecords) {
+      const subtypes = subtype?.split(",") ?? [];
+      for (const subtype of subtypes) {
+        subtypesSet.add(subtype);
+      }
+    }
+
     return {
       actions: actionValues.map((value) => value.actions),
       // Should not need to cast this as the query filters non null vals
       focus: focusValues.map((value) => value.focus) as number[],
       sources,
+      types: skillTypes.map((value) => value.type),
+      subtypes: Array.from(subtypesSet),
     };
   } catch (error) {
     if (error instanceof z.ZodError) throw fromZodError(error);

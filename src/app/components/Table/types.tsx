@@ -30,6 +30,7 @@ export type TableProps<T extends RowData> = {
   selectProps?: TableSelectProps<T>;
   busy?: boolean;
   busyRowCount?: number;
+  openFilter?: () => unknown;
 };
 
 export type TableHeadProps<T extends RowData> = {
@@ -48,6 +49,7 @@ export type TableBodyProps<T extends RowData> = {
 export type TableSearchProps = {
   searchTerm: string;
   setSearchTerm: Dispatch<SetStateAction<string>>;
+  openFilter?: () => unknown;
 };
 
 export type CellMeta = {

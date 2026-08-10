@@ -83,7 +83,7 @@ export function Table<T extends RowData>(
   );
 
   const tNode = props.scrollable ? (
-    <Scrollable maxH="full" scrollbarWidth="thin">
+    <Scrollable maxH="full" scrollbarWidth="thin" flex="1">
       {tcontent}
     </Scrollable>
   ) : (
@@ -91,8 +91,13 @@ export function Table<T extends RowData>(
   );
 
   return (
-    <Flex flexDir="column" gap="sm" alignItems="stretch" maxH="full">
-      <TableSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+    <Flex flexDir="column" gap="sm" alignItems="stretch" maxH="full" h="full">
+      <TableSearch
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        openFilter={props.openFilter}
+      />
+      {props.children}
       {tNode}
     </Flex>
   );

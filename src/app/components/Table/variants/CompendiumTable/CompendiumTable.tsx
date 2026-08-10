@@ -2,13 +2,22 @@ import { Box } from "styled-system/jsx";
 import { Table } from "../../Table";
 import type { ColumnDef, RowData } from "@tanstack/table-core";
 import { css } from "styled-system/css";
-import type { TableSelectProps } from "../../types";
+import type { TableProps, TableSelectProps } from "../../types";
+import { CompendiumFiltersDisplay } from "./components/CompendiumFiltersDisplay/CompendiumFiltersDisplay";
+
+export type FilterItem = {
+  label: string;
+  fieldName: string;
+  fieldValue: string;
+};
 
 export type CompendiumTableProps<T extends RowData> = {
   data: T[];
   columns: ColumnDef<T>[];
   busy?: boolean;
   selectProps?: TableSelectProps<T>;
+  activeFilters?: FilterItem[];
+  openFilter?: TableProps<T>["openFilter"];
 };
 
 export function CompendiumTable<T extends RowData>({
@@ -16,6 +25,8 @@ export function CompendiumTable<T extends RowData>({
   columns,
   busy,
   selectProps,
+  activeFilters,
+  openFilter,
 }: CompendiumTableProps<T>) {
   return (
     <Box
@@ -27,18 +38,21 @@ export function CompendiumTable<T extends RowData>({
       border="2px solid"
       borderColor="page.border.initial"
       boxShadow="md"
+      transition="all, 0.2s"
     >
       <Table
         data={data}
         columns={columns}
         busy={busy}
         rootProps={{
-          css: {
+          className: css({
             rounded: "md",
             maxW: "100%",
             maxH: "full",
+            h: "full",
             borderCollapse: "separate",
-          },
+            bgColor: "page.bg.100",
+          }),
           decoration: "zebra",
         }}
         classNames={{
@@ -60,9 +74,9 @@ export function CompendiumTable<T extends RowData>({
           row: css({
             _hover: {
               bgColor: "page.surface.200",
-              outline: "1px solid",
-              outlineColor: "page.border.initial",
             },
+            transition: "all",
+            transitionDuration: "normal",
           }),
           headRow: css({
             bgColor: "page.surface.300",
@@ -83,7 +97,11 @@ export function CompendiumTable<T extends RowData>({
               }
             : undefined
         }
+        openFilter={openFilter}
         scrollable
+        children={
+          <CompendiumFiltersDisplay activeFilters={activeFilters ?? []} />
+        }
       />
     </Box>
   );

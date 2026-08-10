@@ -33,7 +33,7 @@ export const skillsFieldsMap: Record<SkillsField, FilterColumn> = {
   id: { column: skills.id },
   name: { column: skills.name, operator: "ilike" },
   type: { column: skills.type, operator: "ilike" },
-  subtype: { column: skills.type },
+  subtype: { column: skills.subtype, operator: "substr" },
   actions: { column: skills.actions },
   focus: { column: skills.focus },
   range: { column: skills.range },
@@ -55,7 +55,7 @@ export const skillsFieldsMap: Record<SkillsField, FilterColumn> = {
 
 export const skillsFilterSchema = z
   .object({
-    sourceType: z.string(),
+    sourceType: z.string().or(z.array(z.string())),
   })
   .partial()
   .and(z.partialRecord(z.custom<SkillsField>(), z.unknown()));

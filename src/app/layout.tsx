@@ -6,7 +6,7 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import type { LayoutRoutes } from ".next/dev/types/routes";
 import { cerberus, NotificationCenter, ThemeProvider } from "@cerberus/react";
-import { CenturySchoolbook, UncialAntiqua } from "./fonts";
+import { CenturySchoolbook, IbmPlexSans, UncialAntiqua } from "./fonts";
 import { TopNav } from "./components/TopNav/TopNav";
 import type { Metadata } from "next";
 import { Suspense } from "react";
@@ -39,6 +39,7 @@ export default async function RootLayout(props: LayoutProps<LayoutRoutes>) {
         recursive.variable,
         UncialAntiqua.variable,
         CenturySchoolbook.variable,
+        IbmPlexSans.variable,
       )}
       data-panda-theme="acheron"
       data-color-mode="dark"

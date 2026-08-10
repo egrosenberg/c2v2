@@ -3,6 +3,7 @@ import { getRouteParams } from "../options-transforms";
 import { getSkill } from "@db/services/skills/get-skill";
 import { findSkills } from "@db/services/skills/find-skills";
 import { updateSkill } from "@db/services/skills/update-skill";
+import { findSkillsAggregates } from "@db/services/skills/find-skills-aggregates";
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,6 +16,10 @@ export async function GET(request: NextRequest) {
       }
       case "find-skills": {
         const data = await findSkills(options);
+        return Response.json({ data });
+      }
+      case "find-skills-aggregates": {
+        const data = await findSkillsAggregates(options);
         return Response.json({ data });
       }
       default:

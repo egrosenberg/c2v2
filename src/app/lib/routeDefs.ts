@@ -5,4 +5,6 @@ export const routeDefs = {
     (skillId
       ? `/compendiums/skills/${skillId}`
       : "/compendiums/skills") as Route,
+  classPage: ({ keeperClassId }: { keeperClassId?: string }) =>
+    (keeperClassId ? `/classes/${keeperClassId}` : "/classes") as Route,
 } as const;

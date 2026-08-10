@@ -48,6 +48,7 @@ export default createCerberusConfig({
         fonts: {
           uncial: { value: "var(--font-uncial-antiqua), display" },
           schoolbook: { value: "var(--font-century-schoolbook), serif" },
+          ibm: { value: "var(--font-ibm-plex-sans), sans-serif" },
         },
       },
     },
