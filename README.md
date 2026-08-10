@@ -44,6 +44,9 @@ npm run db:truncate
 
 # Run seeding functions
 npm run db:seed
+
+# Run export functions (if you need db data for something external)
+npm run db:export
 ```
 
 Running app

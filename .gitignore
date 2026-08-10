@@ -7,3 +7,6 @@ styled-system-studio
 ## Next
 next-env.d.ts
 .next
+
+# DB exports
+src/seed/output
