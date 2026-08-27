@@ -4,14 +4,14 @@
     "name": "Titan Strength",
     "type": "Martial",
     "subtype": "Melee Weapon",
-    "actions": 3,
+    "actions": 2,
     "range": "weapon",
     "targetType": "self",
     "sourceType": "aspect",
     "sourceId": "bae9a731-19bd-43b0-9a2f-c81454e570f8",
-    "description": "Strike a target, dealing maximum damage instead of rolling. If the target is left Unguarded, push them back 20 feet.",
+    "description": "Strike a target with a single weapon, dealing maximum damage instead of rolling. If the target is left Unguarded, push them back 20 feet.",
     "damageTypes": "weapon",
-    "tags": ""
+    "tags": "damage-modifier,enhance,enhance-self"
   },
   {
     "id": "0a5939ad-7179-4ec8-9a79-49fa1770a179",
@@ -23,7 +23,7 @@
     "sourceType": "aspect",
     "sourceId": "a610ed95-ea24-4109-846f-147e1e7e9708",
     "description": "Use this immediately as you would take damage. Reduce the triggering damage taken by d12.",
-    "tags": "defensive,reaction"
+    "tags": "defensive,reaction,trigger_damage"
   },
   {
     "id": "3ed26408-3642-4dbe-beb2-b3c973786326",
@@ -37,7 +37,7 @@
     "aoeRadius": 30,
     "sourceType": "aspect",
     "sourceId": "639f56ac-e76f-4fe8-a684-22e507debc0b",
-    "description": "Strike each target in a 30-foot cone originating from you with your tail.\nAny targets left Unguarded are knocked 10 feet away from you or Prone (choose).",
+    "description": "Strike each target in a 30-foot cone originating from you with your tail.<br/>Any targets left Unguarded are knocked 10 feet away from you or <b>Prone</b> (choose).",
     "damageTypes": "physical",
     "statuses": "prone",
     "tags": ""
@@ -53,10 +53,10 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "6bcd30a5-a881-4560-8c6e-026b2087ff38",
-    "description": "Move up to your speed in a straight line and strike a target with your horns. If the target is left Unguarded they begin Bleeding.\nThis skill can be used multiple times per scene.",
+    "description": "Move up to your speed in a straight line and strike a target with your horns. If the target is left Unguarded they begin <b>Bleeding<b>.<br />This skill can be used multiple times per scene.",
     "damageTypes": "physical",
     "statuses": "bleeding",
-    "tags": "mobility,reuseable"
+    "tags": "mobility,reclaims_self"
   },
   {
     "id": "b3671608-2eb5-4870-be2e-15cf3b76c2f3",
@@ -102,7 +102,7 @@
     "sourceId": "a162ea97-54d5-43f2-b319-a4fca11510ef",
     "description": "Use when damaged by a creature you can see within range. Deal 2d8 Fire damage to the triggering creature.",
     "damageTypes": "fire",
-    "tags": "reaction"
+    "tags": "reaction,retaliate,trigger_damage"
   },
   {
     "id": "5279297f-5386-4634-8c1e-5293020c1c07",
@@ -117,7 +117,7 @@
     "aoeWidth": 5,
     "sourceType": "aspect",
     "sourceId": "fdfbf83b-5746-4cb8-b28b-5fef5ab1e6ca",
-    "description": "Send an arc of flaming energy from your weapon, dealing 2d6 Fire damage to each creature in a 5-foot wide 30-foot long line.\nAny targets left Unwarded begin Burning.",
+    "description": "Send an arc of flaming energy from your weapon, dealing 2d6 Fire damage to each creature in a 5-foot wide 30-foot long line.<br />Any targets left Unwarded begin <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": ""
@@ -132,9 +132,9 @@
     "targetType": "self",
     "sourceType": "aspect",
     "sourceId": "a52e61e1-7d4e-4c4d-b305-c759bdb1666a",
-    "description": "Restore Guard up to your maximum.",
+    "description": "Restore <sc>gd</sc> up to your maximum.",
     "restoreTypes": "gd",
-    "tags": "defensive"
+    "tags": "defensive,restore-self"
   },
   {
     "id": "6a370e80-a95e-410d-9694-6ee7390a7c9e",
@@ -147,7 +147,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "77139018-131f-425a-ae94-5efd005b5391",
-    "description": "Growing venomous fangs you bite down on a creature, dealing 2d6 Poison damage.\nIf the target is left Unwarded they fall Asleep.",
+    "description": "Growing venomous fangs you bite down on a creature, dealing 2d6 Poison damage.<br />A target is left Unwarded falls <b>Asleep</b>.",
     "damageTypes": "poison",
     "statuses": "asleep",
     "tags": ""
@@ -166,10 +166,10 @@
     "aoeRadius": 15,
     "sourceType": "subclass",
     "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
-    "description": "Leap into the sky and strike down on a point you can see within range. Deal 2d10 Fire damage to each creature within a 15-foot radius of the point.\nFully restore your Guard, Ward, and Health.",
+    "description": "Leap into the sky and strike down on a point you can see within range. Deal 2d10 Fire damage to each creature within a 15-foot radius of the point.<br />Fully restore your <sc>gd</sc>, <sc>wd</sc>, and <sc>hp</sc>.",
     "damageTypes": "fire",
     "restoreTypes": "gd,wd,hp",
-    "tags": "defensive,mobility"
+    "tags": "defensive,mobility,restore-self"
   },
   {
     "id": "7612572a-de8d-41bc-9913-de3ccbe73b4a",
@@ -185,7 +185,7 @@
     "aoeWidth": 5,
     "sourceType": "subclass",
     "sourceId": "45a0dc14-a22c-4825-a8ee-9894b2f40d39",
-    "description": "A fissure forms in a 5-foot wide 60-foot long line. Each creature in the area takes 2d8 Earth damage.\nAny creatures left Unguarded fall Prone.",
+    "description": "A fissure forms in a 5-foot wide 60-foot long line. Each creature in the area takes 2d8 Earth damage.<br />Any creatures left Unguarded fall <b>Prone</b>.",
     "damageTypes": "earth",
     "statuses": "prone",
     "tags": ""
@@ -201,7 +201,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "a87b259c-065c-468a-8ac7-7420679a77d9",
-    "description": "Mark a creature for 1 minute. While marked, you deal an additional d4 damage to the creature.\nOnce the marked creature is slain, reclaim this skill.",
+    "description": "Mark a creature for 1 minute. While marked, you deal an additional d4 damage to the creature.<br/>Once the marked creature is slain, reclaim this skill.",
     "tags": "mark,reclaims_self"
   },
   {
@@ -215,7 +215,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "31451ffe-2597-4b23-8521-03327b718394",
-    "description": "Strike a creature. That creature cannot move until the start of your next turn. ",
+    "description": "Strike a creature. That creature cannot move until the start of your next turn.",
     "damageTypes": "weapon",
     "tags": "cc_other"
   },
@@ -245,7 +245,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "9f28e0af-ec2d-46f2-a7f1-3f24e94ad4fc",
-    "description": "Throw a dagger that bounces between two creatures you can see within range, dealing 2d6 damage to each of them.\nAny creatures left Unguarded begin Bleeding.",
+    "description": "Throw a dagger that bounces between two creatures you can see within range, dealing 2d6 damage to each of them.<br />Any targets left Unguarded begin <b>Bleeding</b>.",
     "damageTypes": "physical",
     "statuses": "bleeding",
     "tags": ""
@@ -264,7 +264,7 @@
     "aoeWidth": 15,
     "sourceType": "subclass",
     "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
-    "description": "Deal twice your weapon damage to each creature of your choice in a 120-foot long 15-foot wide line originating from you.",
+    "description": "Deal twice your weapon damage to each creature in a 120-foot long 15-foot wide line originating from you.",
     "damageTypes": "weapon",
     "tags": "keystone"
   },
@@ -281,7 +281,7 @@
     "aoeRadius": 60,
     "sourceType": "subclass",
     "sourceId": "d20e0068-1a12-4db7-97b8-05ecaae7a1ba",
-    "description": "Strike each target of your choice in a 60-foot cone. These Strikes deal an extra d6 damage.\nAny creatures left Unguarded begin Bleeding.",
+    "description": "Strike each target of your choice in a 60-foot cone. These Strikes deal an extra d6 damage.<br />Any targets left Unguarded begin <b>Bleeding</b>.",
     "damageTypes": "weapon",
     "statuses": "bleeding",
     "tags": "keystone"
@@ -297,7 +297,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "371fffd3-95cc-46e6-83aa-ea8ace6eae47",
-    "description": "Throw a shuriken that deals 1d8 Water damage to up to three creatures you can see within range.\nAny creatures left Unwarded are Chilled.",
+    "description": "Throw a shuriken that deals 1d8 Water damage to up to three creatures you can see within range.<br /> <b>Chilled</b>.",
     "damageTypes": "water",
     "statuses": "chilled",
     "tags": ""
@@ -314,7 +314,7 @@
     "aoeRadius": 15,
     "sourceType": "aspect",
     "sourceId": "2e1ada62-1c5e-40bc-a01a-9336253cb322",
-    "description": "Deal 2d6 Water damage to each creature in 15-foot semi-circle centered on you.\nAny creatures left Unwarded are Chilled.",
+    "description": "Deal 2d6 Water damage to each creature in 15-foot semi-circle centered on you.<br />Any creatures left Unwarded are <b>Chilled</b>.",
     "damageTypes": "water",
     "statuses": "chilled",
     "tags": ""
@@ -329,8 +329,8 @@
     "targetType": "self",
     "sourceType": "aspect",
     "sourceId": "3690d8bb-6d8c-4fc7-9268-f31fc17f1028",
-    "description": "For 1 minute, if a creature attempts to strike you roll 1d6, on a 3 or higher you are unaffected.",
-    "tags": "defensive"
+    "description": "Until you Reclaim this skill, whenever creature attempts to strike you roll a d6, on a 3 or higher you are unaffected.",
+    "tags": "defensive,persistent"
   },
   {
     "id": "6a130686-71b0-43cc-b874-3cc7748e374f",
@@ -346,7 +346,7 @@
     "sourceId": "709de36e-a53a-4343-8230-4738f468d533",
     "description": "Use this skill as you slay a creature with a melee attack. Deal 2d6 Air damage to each creature other than yourself within a 15-foot radius of the triggering creature.",
     "damageTypes": "air",
-    "tags": "reaction"
+    "tags": "reaction,trigger_death"
   },
   {
     "id": "83b208bb-3109-4915-be8b-458cae28673b",
@@ -376,7 +376,7 @@
     "aoeRadius": 20,
     "sourceType": "subclass",
     "sourceId": "2a8a951a-3b93-4cef-91c1-fc777a4d4f94",
-    "description": "Deal 3d8 Air damage to each creature in a 20-foot radius around you.\nAny creatures left Unwarded are Shocked.\nYou are immune to Air damage until the end of your next turn,",
+    "description": "Deal 3d8 Air damage to each creature in a 20-foot radius around you.<br />Any creatures left Unwarded are <b>Shocked</b>.<br />You are immune to Air damage until the end of your next turn.",
     "damageTypes": "air",
     "statuses": "shocked",
     "tags": "keystone"
@@ -392,7 +392,7 @@
     "sourceType": "aspect",
     "sourceId": "a32d7537-39de-4f9f-a3af-71299a9900f3",
     "description": "The next Fire skill you use does maximum damage.",
-    "tags": "enhance"
+    "tags": "enhance,enhance-self,damage-modifier"
   },
   {
     "id": "ab535260-220f-48ad-9762-cac7bddfef51",
@@ -406,10 +406,10 @@
     "aoeRadius": 30,
     "sourceType": "aspect",
     "sourceId": "723654e7-963c-4dd1-afeb-5daf886cbcb9",
-    "description": "Use as both your gd and wd become depleted. Deal 2d6 Fire damage to each creature within a 30-foot radius of you.\nAny targets left Unwarded begin Burning",
+    "description": "Use as both your <sc>gd</sc> and <sc>wd</sc> become depleted. Deal 2d6 Fire damage to each creature within a 30-foot radius of you.<br />Any creatures left Unwarded begin <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
-    "tags": "reaction"
+    "tags": "reaction,trigger-damage"
   },
   {
     "id": "31710dff-eb2d-4133-aff7-cfbfb5593683",
@@ -422,7 +422,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "aea2d139-d90b-4a55-99ee-57a032c60aa6",
-    "description": "Deal 2d4 Earth damage to target creature.\nIf the target is left Unwarded they become Petrified.",
+    "description": "Deal 2d4 Earth damage to target creature.<br />A target left Unwarded is <b>Petrified</b>.",
     "damageTypes": "earth",
     "statuses": "petrified",
     "tags": ""
@@ -438,9 +438,9 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "61d60193-7820-4eb0-8b3e-3a2b7b7b4b27",
-    "description": "Deal 2d6 damage to yourself and up to one creature you can see within range.",
+    "description": "Deal 2d6 Poison damage to yourself and up to one creature you can see within range.",
     "damageTypes": "poison",
-    "tags": ""
+    "tags": "restore-self"
   },
   {
     "id": "86baa404-3c13-4ea7-8f14-75e495d5cd06",
@@ -456,7 +456,7 @@
     "aoeRadius": 30,
     "sourceType": "subclass",
     "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
-    "description": "Deal 3d8 Fire damage to each creature within a 30-foot sphere centered on a point you can see within range.\nAny creatures left Unwarded begin Burning.",
+    "description": "Deal 3d8 Fire damage to each creature within a 30-foot sphere centered on a point you can see within range.<br/>Any creatures left Unwarded begin <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": "keystone"
@@ -474,7 +474,7 @@
     "aoeRadius": 60,
     "sourceType": "subclass",
     "sourceId": "b97a4e4e-02b9-4973-8129-03346ca0d9cf",
-    "description": "Deal 3d4 Earth damage to each creature of your choice within a 60-foot radius.\nAny creatures left Unguarded fall Prone.",
+    "description": "Deal 3d4 Earth damage to each creature of your choice within a 60-foot radius.<br/>Any creatures left Unguarded fall <br>Prone</br>.",
     "damageTypes": "earth",
     "statuses": "prone",
     "tags": "keystone"
@@ -505,7 +505,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "eefbda70-ab19-427f-8f91-41cb30a15a99",
-    "description": "Deal 1d6 Water damage to target creature you can see within range.\nA target left Unwarded is Frozen.",
+    "description": "Deal d6 Water damage to target creature you can see within range.<br/>A target left Unwarded is <b>Frozen</b>.",
     "damageTypes": "water",
     "statuses": "frozen",
     "tags": ""
@@ -521,7 +521,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "b104cffc-2af3-4529-8c61-9a8eaca65632",
-    "description": "Deal 2d8 Air damage to two targets you can see within range.\nAny targets left Unwarded are Shocked.",
+    "description": "Deal 2d8 Air damage to two targets you can see within range.<br />Any targets left Unwarded are <b>Shocked</b>.",
     "damageTypes": "air",
     "statuses": "shocked",
     "tags": ""
@@ -539,7 +539,7 @@
     "sourceId": "674e5564-f6a7-46b8-b17d-e7e2572ce3ae",
     "description": "Use as you are hit by a melee attack. Deal 2d10 Air damage to the triggering creature.",
     "damageTypes": "air",
-    "tags": "cc_other,reaction"
+    "tags": "reaction,retaliate,trigger_damage"
   },
   {
     "id": "36206199-54d1-475e-be34-1c9e5de693e0",
@@ -554,7 +554,7 @@
     "aoeRadius": 30,
     "sourceType": "subclass",
     "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
-    "description": "Healing water flows into a 30-foot radius, making all creatures wet. Heal any number of creatures in the area 2d10 and remove Burning, Impaired, Decaying, Poisoned, Chilled, and Shocked.",
+    "description": "Healing water flows into a 20-foot radius, making all creatures wet. Restore 2d10 <sc>hp</sc> to any number of creatures in the area and remove <b>Burning</b>, <b>Impaired</b>, <b>Decaying</b>, <b>Poisoned</b>, <b>Chilled</b>, and <b>Shocked</b>.",
     "restoreTypes": "hp",
     "tags": "keystone,cleanse"
   },
@@ -570,7 +570,7 @@
     "targetType": "creature",
     "sourceType": "subclass",
     "sourceId": "49bf8f5f-0e0f-4c97-af85-51da4bbea2f0",
-    "description": "A bolt of lightning strikes a creature you can see within range and forks to up to 5 creatures of your choice within a 30-foot radius of it. Each target takes 3d8 Air damage.\nAny targets left Unwarded are Stunned.",
+    "description": "A bolt of lightning strikes a creature you can see within range and forks to up to 5 creatures of your choice within a 30-foot radius of it. Each target takes 3d8 Air damage.<br />Any targets left Unwarded are <br>Stunned</br>.",
     "damageTypes": "air",
     "statuses": "stunned",
     "tags": "keystone"
@@ -586,7 +586,7 @@
     "sourceType": "aspect",
     "sourceId": "c7639ab1-27ba-4f7d-aa1b-f4f9eceed780",
     "description": "Until the end of the scene you double in size and your strikes deal +d4 damage.",
-    "tags": "enhance"
+    "tags": "enhance,enhance-self"
   },
   {
     "id": "246b1367-95fe-4332-96da-5fe08ed203ca",
@@ -599,7 +599,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "d9bc1cf0-a8dd-49c8-a2de-241acf4958fe",
-    "description": "Strike a target.\nA target left Unguarded is Maimed.",
+    "description": "Strike a target.<br />A target left Unguarded is <b>Maimed</b>.",
     "damageTypes": "weapon",
     "statuses": "maimed",
     "tags": ""
@@ -614,7 +614,7 @@
     "sourceType": "aspect",
     "sourceId": "20396031-0486-4a4e-bfd5-c0c80ed06c38",
     "description": "Until the end of your turn, roll double dice for all your Strikes.",
-    "tags": "enhance"
+    "tags": "enhance,enhance-self,damage-modifier"
   },
   {
     "id": "30ea8a93-8aa8-447d-a216-21dc54e8b0a6",
@@ -628,7 +628,7 @@
     "aoeRadius": 30,
     "sourceType": "aspect",
     "sourceId": "cd3bf5e0-3f94-467a-a2aa-ea65d4160ab2",
-    "description": "You let out a terrifying roar, dealing 3d8 Physical damage to any number of  creature who can hear you in a 30-foot radius.",
+    "description": "You let out a terrifying roar, dealing 3d8 Physical damage to any number of creatures who can hear you in a 30-foot radius.",
     "damageTypes": "physical",
     "tags": ""
   },
@@ -641,8 +641,8 @@
     "targetType": "self",
     "sourceType": "aspect",
     "sourceId": "cf6e1982-8ea1-408b-aee6-97657a2d87ca",
-    "description": "Use while out of view of your enemies, become invisible until your next turn or until you affect another creature.",
-    "tags": "stealth"
+    "description": "Use while out of view of your enemies. Become invisible until your next turn or until you affect another creature.",
+    "tags": "stealth,enhance,enhance-self"
   },
   {
     "id": "f64c68c6-4375-433b-a7e9-758850058c9e",
@@ -655,9 +655,9 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "e8517e9f-af98-44b9-9c53-39088c45f598",
-    "description": "Strike a creature who is Bleeding. Deal 2d6 Piercing damage to them and they stop Bleeding.",
+    "description": "Strike a creature who is <b>Bleeding</b>. Deal 2d6 Piercing damage to them and they stop <b>Bleeding</b>.",
     "damageTypes": "piercing",
-    "tags": ""
+    "tags": "remove-status"
   },
   {
     "id": "808a4c0e-bc4f-4a45-9704-12bcce2b6136",
@@ -670,7 +670,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "30037e8c-3270-416e-8eee-5c5762ca946f",
-    "description": "Pummel a creature with your offhand or an otherwise free limb, dealing d8 Physical damage.\nA target left Unguarded is knocked Prone.",
+    "description": "Pummel a creature with your offhand or an otherwise free limb, dealing d8 Physical damage.<br />A target left Unguarded is knocked <b>Prone</b>.",
     "damageTypes": "physical",
     "statuses": "prone",
     "tags": ""
@@ -688,7 +688,7 @@
     "aoeWidth": 15,
     "sourceType": "aspect",
     "sourceId": "b60d884f-ddef-4cba-91fc-d339bd4d08a4",
-    "description": "Send forth a torrent of eviscerating winds in a 60-foot long, 15-foot wide line, dealing 3d6 Physical damage.\nAny targets left Unguarded begin Bleeding.",
+    "description": "Send forth a torrent of eviscerating winds in a 60-foot long, 15-foot wide line, dealing 3d6 Physical damage.<br/>Any targets left Unguarded begin <b>Bleeding</b>.",
     "damageTypes": "physical",
     "statuses": "bleeding",
     "tags": ""
@@ -705,7 +705,7 @@
     "sourceId": "1268d6d2-08bf-4e41-93e3-bc81255e115a",
     "description": "Until the end of the scene you glow with burning light and your weapons and skills deal an additional 2 Fire damage.",
     "damageTypes": "fire",
-    "tags": ""
+    "tags": "enhance,enhance-self,damage-modifier"
   },
   {
     "id": "cec14eb8-449f-46f5-8a41-a2eabe7d6dd3",
@@ -718,9 +718,9 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "4e13c84f-7dd7-4873-893a-1f25370e3400",
-    "description": "Strike a target, you then gain Guard equal to the damage dealt.",
+    "description": "Strike a target, you gain <sc>gd</sc> equal to the damage dealt.",
     "restoreTypes": "gd",
-    "tags": ""
+    "tags": "restore-self"
   },
   {
     "id": "d280ce33-4199-4662-8428-017c5d5c2b68",
@@ -733,7 +733,7 @@
     "targetType": "creature",
     "sourceType": "aspect",
     "sourceId": "f988998c-b5b4-41c2-bb98-d78ea11510e5",
-    "description": "Ruthlessly strike a creature with your claws, dealing 2d6+d4 Fire damage.\nA target left Unwarded begins Burning.",
+    "description": "Ruthlessly strike a creature with your claws, dealing 2d6+d4 Fire damage.<br />A target left Unwarded begins <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": ""
@@ -750,7 +750,7 @@
     "aoeRadius": 60,
     "sourceType": "aspect",
     "sourceId": "26d08259-a125-4fe8-9b2a-99e5040e69e9",
-    "description": "Breath fire into a 60-foot cone originating from you, dealing 3d6 Fire damage to each creature in the area.\nAny targets left Unwarded begin Burning.",
+    "description": "Breath fire into a 60-foot cone originating from you, dealing 3d6 Fire damage to each creature in the area.<br />Any targets left Unwarded begin <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": ""
@@ -765,7 +765,7 @@
     "targetType": "self",
     "sourceType": "aspect",
     "sourceId": "bec41a4a-9514-40c6-b56b-5ed79e154f03",
-    "description": "As a body of murky waters you slip out of any physical restraints and move up to your speed, ignoring any statuses affecting you.",
+    "description": "As a body of murky waters you slip out of any physical restraints and move up to your speed, ignoring any statuses affecting your movement.",
     "tags": "mobility"
   },
   {
@@ -810,7 +810,7 @@
     "aoeRadius": 60,
     "sourceType": "aspect",
     "sourceId": "9293f3b8-e2c0-40ca-b122-66b625bef908",
-    "description": "Breath frigid air into a 60-foot cone originating from you, dealing 3d6 Water damage to each creature in the area.\nAny targets left Unwarded are Chilled.",
+    "description": "Breath frigid air into a 60-foot cone originating from you, dealing 3d6 Water damage to each creature in the area.<br />Any targets left Unwarded are <b>Chilled</b>.",
     "damageTypes": "water",
     "statuses": "chilled",
     "tags": ""
@@ -822,8 +822,8 @@
     "subtype": "Melee Weapon",
     "actions": 2,
     "range": "weapon",
-    "numTargets": 1,
-    "targetType": "creature",
+    "targetType": "area",
+    "aoeShape": "radius",
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
     "description": "Spinning your equipped weapon(s) around you, you strike any number of creatures within within your weapon’s reach.",
@@ -838,9 +838,11 @@
     "actions": 2,
     "range": "self",
     "targetType": "area",
+    "aoeShape": "cone",
+    "aoeRadius": 15,
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
-    "description": "Slamming your weapon(s) into the ground you send a shockwave in a 15-foot cone originating from you. Strike each creature in the area.\nAny targets left Unguarded are knocked Prone.",
+    "description": "Slamming your weapon(s) into the ground you send a shockwave in a 15-foot cone originating from you. Strike each creature in the area.<br />Any targets left Unguarded are knocked <b>Prone</b>.",
     "damageTypes": "weapon",
     "statuses": "prone",
     "tags": ""
@@ -856,7 +858,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
-    "description": "Throwing your equipped shield, it bounces off of up to two targets you can see within range  standing no more than 30 feet apart, and then returns to your hand. Deal 2d4 Physical damage to each target.",
+    "description": "Throwing your equipped shield, it bounces off of up to two targets you can see within range no more than 30 feet apart, and then returns to your hand. Deal 2d4 Physical damage to each target.",
     "damageTypes": "physical",
     "tags": ""
   },
@@ -871,9 +873,9 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
-    "description": "Leap towards a target you can see within range and Strike it. Then you may leap towards a second target within 10 feet. of the first and Strike it as well.",
+    "description": "Leap towards a target you can see within range and Strike it. You may leap towards a second target within 10 feet. of the first and Strike it.",
     "damageTypes": "weapon",
-    "tags": ""
+    "tags": "mobility"
   },
   {
     "id": "3b98e2ae-6776-4f10-89a2-8a0a06728691",
@@ -886,7 +888,7 @@
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
     "description": "You let out a resounding cry that bolsters you and your allies. Any creatures of your choice that can hear you deal +2 damage and reduce all damage they take by 1 until the end of the combat.",
-    "tags": "enhance"
+    "tags": "enhance,damage-modifier"
   },
   {
     "id": "a98b4f29-3a7d-4e73-bd1b-3a1198e5dfa0",
@@ -898,9 +900,9 @@
     "targetType": "self",
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
-    "description": "Your blood turns quicksilver and your skin coated in steel. You gain 2d6 gd now and an additional d6 Guard at the start of the next 2 rounds.  ",
+    "description": "Your blood turns quicksilver and your skin coated in steel. You gain 2d6 <sc>gd</sc> now and an additional d6 <sc>gd</sc> at the start of your next 2 turns.",
     "restoreTypes": "gd",
-    "tags": "defensive"
+    "tags": "defensive,restore-self"
   },
   {
     "id": "59544c76-e346-4eff-9180-d676db94a8b1",
@@ -913,7 +915,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "de0f65a6-27f3-4c8b-8d7b-c167c0212c57",
-    "description": "One of your limbs turns into a tentacle you use to lash out at a target you can see within range, dealing 2d8 Physical damage.\nA target left Unguarded is Atrophied.",
+    "description": "One of your limbs turns into a tendril you use to lash out at a target you can see within range, dealing 2d8 Physical damage.<br />A target left Unguarded is <b>Atrophied</b>.",
     "damageTypes": "physical",
     "statuses": "atrophied",
     "tags": ""
@@ -929,7 +931,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
-    "description": "Strike a target. Your ammunition then bounces up to two additional targets, each target no more than 15 feet from the last.",
+    "description": "Strike a target. Your ammunition bounces towards up to two additional targets, each no further than 15 feet from the last.",
     "damageTypes": "weapon",
     "tags": ""
   },
@@ -961,7 +963,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
-    "description": "Strike a target, dealing +d4 damage.\nA target left Unguarded is Maimed.",
+    "description": "Strike a target, dealing +d4 damage.<br />A target left Unguarded is <b>Maimed</b>.",
     "damageTypes": "weapon",
     "statuses": "maimed",
     "tags": ""
@@ -991,7 +993,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
-    "description": "Strike a creature, dealing Piercing damage rather than your weapon’s normal damage type.\nIf the target is Unguarded, the begin Bleeding.",
+    "description": "Strike a creature, dealing Piercing damage rather than your weapon’s normal damage type.<br />If the target is Unguarded, the begin <b>Bleeding</b>.",
     "damageTypes": "piercing",
     "statuses": "bleeding",
     "tags": "override_dtype"
@@ -1007,7 +1009,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
-    "description": "Strike a target with an attack infused with corrupting toxins, dealing an +d6 damage.\nA target left Unguarded is Impaired and begins Decaying.",
+    "description": "Strike a target with an attack infused with corrupting toxins, dealing +d6 damage.<br />A target left Unguarded is <b>Impaired</b> and begins <b>Decaying</b>.",
     "damageTypes": "weapon",
     "statuses": "impaired,decaying",
     "tags": ""
@@ -1023,7 +1025,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "9aaa08a5-dd90-463c-97f7-11c4874ac4d8",
-    "description": "Strike a target.\nA target left Unguarded is Atrophied.",
+    "description": "Strike a target.<br />A target left Unguarded is <b>Atrophied</b>.",
     "damageTypes": "weapon",
     "statuses": "atrophied",
     "tags": ""
@@ -1041,7 +1043,7 @@
     "aoeRadius": 15,
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Launch a fiery missile towards a point you can see within range where it errupts into a 15-foot sphere. Each creature in the area takes 2d6 Fire damage.\nAny target left Unwarded begins Burning.",
+    "description": "Launch a fiery missile towards a point you can see within range where it errupts into a 15-foot sphere. Each creature in the area takes 2d6 Fire damage.<br />Any target left Unwarded begins <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": ""
@@ -1058,7 +1060,7 @@
     "aoeRadius": 15,
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "With a word, flames erupt around you. Each creature within a 15-foot radius takes d6 Fire damage.\nAny target left Unwarded begins Burning.",
+    "description": "With a word, flames erupt around you. Each creature within a 15-foot radius takes d6 Fire damage.<br />Any target left Unwarded begins <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning",
     "tags": ""
@@ -1074,7 +1076,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Conjure a whip of fire and strike a creature with it for 3d6 Fire damage.\nA target left Unwarded is Blinded and begins Burning.",
+    "description": "Conjure a whip of fire and strike a creature with it for 3d6 Fire damage.<br />A target left Unwarded is Blinded and begins <b>Burning</b>.",
     "damageTypes": "fire",
     "statuses": "burning,blinded",
     "tags": ""
@@ -1092,7 +1094,7 @@
     "aoeRadius": 5,
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Launch a mass of molten earth at a point you can see within range, where it explodes into a 5-foot sphere, leaving burning earth in its wake. Deal d10 Fire and d6 Earth damage to each creature in the area.\nAny targets left Unwarded begins Burning.",
+    "description": "Launch a mass of molten earth at a point you can see within range, where it explodes into a 5-foot sphere, leaving burning earth in its wake. Deal d10 Fire and d6 Earth damage to each creature in the area.<br />Any targets left Unwarded begins <b>Burning</b>.",
     "damageTypes": "fire,earth",
     "statuses": "burning",
     "tags": "explicit_surface"
@@ -1108,7 +1110,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Loose stones form armor around target creature you can see within range. The target gains 2d6 gd.\nRemoves Poisoned, Bleeding, Burning, and Decaying.",
+    "description": "Loose stones form armor around target creature you can see within range. The target gains 2d6 <sc>gd</sc>.<br />Removes <b>Poisoned</b>, <b>Bleeding</b>, <b>Burning</b>, and <b>Decaying</b>.",
     "restoreTypes": "gd",
     "tags": "cleanse,defensive"
   },
@@ -1126,7 +1128,7 @@
     "aoeHeight": 5,
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Sharp stones jettison from the ground at a point you can see within range in a 10-foot circle. Deal 2d6 Earth damage to each creature in the area.\nAny targets left Unguarded are Maimed.  ",
+    "description": "Sharp stones jettison from the ground at a point you can see within range in a 10-foot circle. Deal 2d6 Earth damage to each creature in the area.<br />Any targets left Unguarded are <b>Maimed</b>.",
     "damageTypes": "earth",
     "statuses": "maimed",
     "tags": ""
@@ -1142,7 +1144,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "15ed9eca-45fa-4718-b1df-fc257cc922db",
-    "description": "Grabbing a creature, you coat them in corrosive acid, reducing their gd by 2d6 now and d6 at the begining of the next round.",
+    "description": "Grabbing a creature, you coat them in corrosive acid, reducing their <sc>gd</sc> by 2d6 now and d6 at the beginning of the next round.",
     "damageTypes": "gd",
     "tags": "reduce_vital"
   },
@@ -1157,7 +1159,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "Soothing waters wash over target creature you can see within range, restoring d10 hp now and d10 more at the start of the next round.\nRemoves Bleeding, Poisoned, and Burning.",
+    "description": "Soothing waters wash over target creature you can see within range, restoring d10 <sc>hp</sc> now and d10 more at the start of the next round.<br />Removes <b>Bleeding</b>, <b>Poisoned</b>, and <b>Burning</b>.",
     "restoreTypes": "hp",
     "tags": "cleanse"
   },
@@ -1175,7 +1177,7 @@
     "aoeHeight": 60,
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "Rain pours down into a 30-foot radius 60-foot tall cylinder centered on a point you can see within range for 2 rounds or until dispered by strong winds.\nAny target that starts its turn in or enters the area becomes Wet.",
+    "description": "Rain pours down into a 30-foot radius 60-foot tall cylinder centered on a point you can see within range for 2 rounds or until dispersed by strong winds.<br />Any target that starts its turn in or enters the area becomes <b>Wet</b>.",
     "statuses": "wet",
     "tags": "explicit_surface"
   },
@@ -1190,7 +1192,7 @@
     "targetType": "creature",
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "Icy armor forms around target creature you can see within range. The target gains 2d6 wd.\nRemoves Burning, Frozen, Poisoned, Petrified, Shocked and Stunned.",
+    "description": "Icy armor forms around target creature you can see within range. The target gains 2d6 <sc>wd</sc>.<br />Removes <b>Burning</b>, <b>Frozen</b>, <b>Poisoned</b>, <b>Petrified</b>, <b>Shocked</b> and <b>Stunned</b>.",
     "restoreTypes": "wd",
     "tags": "cleanse"
   },
@@ -1207,7 +1209,7 @@
     "aoeRadius": 5,
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "Launch 3 shards of ice at points you can see within range where they explode and deal d6 Water damage to each creature in a 5-foot sphere.\nAny target left Unwarded begins Chilled.",
+    "description": "Launch 3 shards of ice at points you can see within range where they explode and deal d6 Water damage to each creature in a 5-foot sphere.<br />Any target left Unwarded is <b>Chilled</b>.",
     "damageTypes": "water",
     "statuses": "chilled",
     "tags": ""
@@ -1239,7 +1241,7 @@
     "aoeWidth": 5,
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "Send a bolt of lightning into a 100-foot long 5-foot wide line, dealing 2d6 Air damage to each creature in its path.\nAny target left Unwarded is Shocked.",
+    "description": "Send a bolt of lightning into a 100-foot long 5-foot wide line, dealing 2d6 Air damage to each creature in its path.<br />Any target left Unwarded is <b>Shocked</b>.",
     "damageTypes": "air",
     "statuses": "shocked",
     "tags": ""
@@ -1257,7 +1259,7 @@
     "aoeRadius": 10,
     "sourceType": "domain",
     "sourceId": "305c8820-7d95-491b-b684-10073711d47b",
-    "description": "An orb of technicolor energy emanates from a point you can see within range into a 10-foot sphere. Deal 2d8 Air damage to each creature in the area.\nAny target left Unwarded is Shocked.",
+    "description": "An orb of technicolor energy emanates from a point you can see within range into a 10-foot sphere. Deal 2d8 Air damage to each creature in the area.<br />Any target left Unwarded is <b>Shocked</b>.",
     "damageTypes": "air",
     "statuses": "shocked",
     "tags": ""

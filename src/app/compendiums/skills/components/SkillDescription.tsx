@@ -1,9 +1,10 @@
 import { formatSource } from "@/compendiums/lib/formatSource";
-import { Text } from "@cerberus/react";
+import { Dialog, DialogProvider, DialogTrigger, Text } from "@cerberus/react";
 import type { SkillWithRelations } from "@db/tables/skills";
-import { Box, Flex } from "styled-system/jsx";
+import { Flex } from "styled-system/jsx";
 import { EditSkillModal } from "./EditSkillModal/EditSkillModal";
 import { MaybeHTML } from "@/components/html/MaybeHTML/MaybeHTML";
+import SkillCardDownload from "@/components/rendering/skills/SkillCardDownload/SkillCardDownload";
 
 export function SkillDescription({
   skill,
@@ -67,6 +68,12 @@ export function SkillDescription({
         Source - {formatSource(skill)}
       </Text>
       <EditSkillModal skill={skill} />
+      <DialogProvider>
+        <DialogTrigger>Open card</DialogTrigger>
+        <Dialog w="min-content" h="min-content" maxH="95%" overflowY="auto">
+          <SkillCardDownload skill={skill} />
+        </Dialog>
+      </DialogProvider>
     </Flex>
   );
 }

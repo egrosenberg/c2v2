@@ -1,8 +1,4 @@
-import type { NewAspect } from "@db/tables/aspects";
 import { readJson } from "../lib/read-json";
-import { findAspects } from "@db/services/aspects/find-aspects";
-import { updateAspect } from "@db/services/aspects/update-aspect";
-import { createAspect } from "@db/services/aspects/create-aspect";
 import type { NewSkill } from "@db/tables/skills";
 import { findSkills } from "@db/services/skills/find-skills";
 import { createSkill } from "@db/services/skills/create-skill";

@@ -10,7 +10,7 @@ import {
 import { css } from "styled-system/css";
 import { useEffect, useMemo, useState } from "react";
 import type { SkillWithRelations } from "@db/tables/skills";
-import { Text } from "@cerberus/react";
+import { Dialog, DialogProvider, DialogTrigger, Text } from "@cerberus/react";
 import { MainContentWrapper } from "@/components/Wrappers/MainContentWrapper";
 import { getSkillColumns } from "../lib/getSkillColumns";
 import {
@@ -25,6 +25,7 @@ import { SkillsFilterDialog } from "./SkillsFilter/SkillsFilter";
 import type { SubmitHandler } from "react-hook-form";
 import type { SkillsFilter } from "@db/services/skills/types";
 import { sentenceCase } from "@/lib/string/sentenceCase";
+import SkillSheetDownloader from "@/components/rendering/skills/SkillSheetDownloader/SkillSheetDownloader";
 
 export function SkillsCompendium() {
   const [skill, setSkill] = useState<SkillWithRelations | undefined>(undefined);
@@ -130,6 +131,12 @@ export function SkillsCompendium() {
             bgGradient="to-b"
           />
         </Box>
+        <DialogProvider>
+          <DialogTrigger>Open card sheet</DialogTrigger>
+          <Dialog w="min-content" h="min-content" maxH="95%" overflowY="auto">
+            <SkillSheetDownloader skills={skills} />
+          </Dialog>
+        </DialogProvider>
         <Flex
           flexDir={{ base: "column", md: "row" }}
           justifyContent="space-between"

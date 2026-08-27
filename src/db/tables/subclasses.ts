@@ -25,6 +25,6 @@ export const subclassesInsertSchema = createInsertSchema(subclasses);
 export type NewSubclass = z.input<typeof subclassesInsertSchema>;
 
 export type Subclass = typeof subclasses.$inferSelect;
-export type SuclassWithRelations = Subclass & {
+export type SubclassWithRelations = Subclass & {
   domain: Domain;
 };

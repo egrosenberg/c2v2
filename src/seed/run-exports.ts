@@ -9,7 +9,7 @@ export default async function runExports() {
       console.error(`Error in seeding ${fn.name}:`, err);
     }
   }
-  console.info("Done seeding, cleaning up...");
+  console.info("Done exporting, cleaning up...");
 }
 
 runExports();

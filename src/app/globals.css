@@ -2,4 +2,8 @@
 
 * {
   --table-zebra-bg: var(--cerberus-colors-page-surface-initial);
+
+  sc {
+    font-variant-caps: small-caps;
+  }
 }
