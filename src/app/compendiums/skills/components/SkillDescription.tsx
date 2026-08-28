@@ -1,4 +1,4 @@
-import { formatSource } from "@/compendiums/lib/formatSource";
+import { formatSource } from "@/lib/string/formatSource";
 import { Dialog, DialogProvider, DialogTrigger, Text } from "@cerberus/react";
 import type { SkillWithRelations } from "@db/tables/skills";
 import { Flex } from "styled-system/jsx";

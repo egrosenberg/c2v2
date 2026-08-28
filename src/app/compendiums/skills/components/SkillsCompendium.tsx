@@ -26,6 +26,8 @@ import type { SubmitHandler } from "react-hook-form";
 import type { SkillsFilter } from "@db/services/skills/types";
 import { sentenceCase } from "@/lib/string/sentenceCase";
 import SkillSheetDownloader from "@/components/rendering/skills/SkillSheetDownloader/SkillSheetDownloader";
+import AspectSheetDownloader from "@/components/rendering/aspects/AspectSheetDownloader/AspectSheetDownloader";
+import { svcFindAspects } from "@/api/aspects";
 
 export function SkillsCompendium() {
   const [skill, setSkill] = useState<SkillWithRelations | undefined>(undefined);
@@ -37,6 +39,8 @@ export function SkillsCompendium() {
     { options: { filter } },
     [filter],
   );
+
+  const { data: aspectsData } = useQuery(svcFindAspects);
   const { data: aggregates } = useQuery(svcFindSkillsAggregates);
 
   const { skillId } = useParams();
@@ -112,8 +116,6 @@ export function SkillsCompendium() {
     return items;
   }, [filter]);
 
-  console.log(activeFilterItems);
-
   return (
     <>
       <Flex w="full" h="full" alignItems="center" flexDir="column" gap="md">
@@ -137,6 +139,14 @@ export function SkillsCompendium() {
             <SkillSheetDownloader skills={skills} />
           </Dialog>
         </DialogProvider>
+
+        <DialogProvider>
+          <DialogTrigger>Open aspect sheet</DialogTrigger>
+          <Dialog w="min-content" h="min-content" maxH="95%" overflowY="auto">
+            <AspectSheetDownloader aspects={aspectsData?.records ?? []} />
+          </Dialog>
+        </DialogProvider>
+
         <Flex
           flexDir={{ base: "column", md: "row" }}
           justifyContent="space-between"
